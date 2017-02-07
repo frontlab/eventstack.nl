@@ -1,195 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Eventstack · conferences, meetups and workshops</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    </head>
-    <body>
-        <style type="text/css">
-            html, body {
-                background: #f7f7f7;
-                color: #333;
-                font-family: "Roboto", sans-serif;
-                margin: 0;
-                padding: 0;
-                -webkit-text-size-adjust: 100%;
-            }
-            h2, h3 {
-                margin: 0;
-            }
-            h1 {
-                font-size: 1.5em;
-                font-weight: normal;
-                line-height: 1.3;
-                margin: 0;
-            }
-            h1 em {
-                color: #000;
-            }
-            ul, li {
-                margin: 0;
-                padding: 0;
-            }
-            ul li {
-                list-style: none;
-            }
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Eventstack · conferences, meetups and workshops</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,500">
+	</head>
+	<body>
+		<style>
+		html,
+		body {
+			background: #f7f7f7;
+			color: #333;
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			margin: 0;
+			padding: 0;
+			-webkit-text-size-adjust: 100%;
+		}
+		h2,
+		h3 {
+			margin: 0;
+		}
+		h1 {
+			font-size: 1.5em;
+			font-weight: 300;
+			line-height: 1.5;
+			margin: 0;
+		}
+		h1 em {
+			font-weight: 500;
+			color: #000;
+		}
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+		}
+		ul li {
+			list-style: none;
+		}
+		em {
+			font-style: normal;
+			font-weight: 300;
+		}
+		u {
+			text-decoration: none;
+		}
+		u + u {
+			margin-left: 0.25em;
+		}
 
-            .blurb {
-                margin: 0 auto;
-                max-width: 440px;
-            }
+		.blurb {
+			margin: 0 auto;
+			max-width: 440px;
+		}
 
-            .branding {
-                color: #FFF;
-                line-height: 1.3;
-                padding: 2em 0;
-                text-align: center;
-                width: 100%;
-            }
-            .branding a,
-            .branding a:visited {
-                color: #FFF;
-                text-decoration: none;
-            }
-            .branding a:hover {
-                text-decoration: underline;
-            }
-            .branding img {
-                max-width: 300px;
-                display: block;
-                margin: 0 auto 1em auto;
-            }
-            .event-functionconf {
-                background: -webkit-linear-gradient(left,#1e97c6,#35cfbf 70%) no-repeat;
-                background: linear-gradient(to right,#1e97c6,#35cfbf 70%) no-repeat;
-            }
-            .event-serverless-amsterdam {
-                background: #336699;
-            }
-            .event-git-to-great {
-                background: #0CBF31;
-            }
-            .event-fronteersconf {
-                background: #f2bb00;
-            }
+		.branding {
+			color: #fff;
+			line-height: 1.5;
+			padding: 2em 0;
+			text-align: center;
+			width: 100%;
+		}
+		.branding a,
+		.branding a:visited {
+			border-bottom: 1px solid currentColor;
+			color: #fff;
+			text-decoration: none;
+		}
+		.branding img {
+			max-width: 300px;
+			display: block;
+			margin: 0 auto 1em auto;
+		}
+		.event-functionconf {
+			background: -webkit-linear-gradient(left, #1e97c6, #35cfbf 70%) no-repeat;
+			background: linear-gradient(to right, #1e97c6, #35cfbf 70%) no-repeat;
+		}
+		.event-serverless-amsterdam {
+			background: #369;
+		}
+		.event-git-to-great {
+			background: #0cbf31;
+		}
+		.event-fronteersconf {
+			background: #f2bb00;
+		}
 
-            header, footer {
-                text-align: center;
-            }
-            header {
-                padding: 6em 0 5em 0;
-            }
-            header img {
-                max-width: 80%;
-            }
-            header h1 {
-                margin: 2em auto 0 auto;
-                max-width: 440px;
-                padding: 0 1em;
-            }
-            header h1 span {
-                white-space: nowrap;
-            }
-            @media screen and (max-width: 40em) {
-                header {
-                    padding: 3em 0;
-                }
-                header h1 {
-                    font-size: 1.1em;
-                    line-height: 1.2;
-                    margin: 1.5em auto 0 auto;
-                }
-                header img,
-                .branding img {
-                    max-width: 60%;
-                }
-            }
-            footer {
-                padding: 3em 1em;
-                line-height: 1.3;
-            }
-            footer a, footer a:visited {
-                color: #333;
-                text-decoration: none;
-            }
-            footer a:hover {
-                color: #000;
-                text-decoration: underline;
-            }
-            footer p + p {
-                margin-top: 1.5em;
-            }
-            .tiny-logo {
-                display: block;
-                margin: 0 auto .75em auto;
-                width: 150px;
-            }
-        </style>
-        <header>
-                <img src="img/eventstack.svg" alt="Eventstack">
-                <h1>
-                    <em>Eventstack</em> produces conferences, workshops and meetups for developers and engineers in <span>the Netherlands</span>
-                </h1>
-        </header>
-        </section>
-        <section>
-            <ul>
-                <li class="branding event-functionconf">
-                    <h3>
-                        <span hidden>FunctionConf</span>
-                        <img src="img/functionconf.svg" alt="FunctionConf">
-                    </h3>
-                    <em>Tech conference</em><br>
-                    <a href="https://functionconf.io">functionconf.io</a><br>
-                    <time>2017</time>
-                </li>
-                <li class="branding event-serverless-amsterdam">
-                    <h3>
-                        <span hidden>Serverless Amsterdam</span>
-                        <img src="img/serverless-amsterdam.svg" alt="Serverless Amsterdam">
-                    </h3>
-                    <em>Meetup series</em><br>
-                    <a href="http://serverless.amsterdam">serverless.amsterdam</a><br>
-                    <time>2016, 2017</time>
-                </li>
-                <li class="branding event-git-to-great">
-                    <h3>
-                        <span hidden>Git to Great</span>
-                        <img src="img/git-to-great.svg" alt="Git to Great">
-                    </h3>
-                    <em>Workshops</em><br>
-                    <a href="https://gittogreat.nl">gittogreat.nl</a><br>
-                    <time>2017</time>
-                </li>
-                <li class="branding event-fronteersconf">
-                    <h3>
-                        <span hidden>Fronteers Conference</span>
-                        <img src="img/fronteers-conference.svg" alt="Fronteers Conference">
-                    </h3>
-                    <em>Tech conference</em><br>
-                    <a href="http://fronteersconf.org">fronteersconf.org</a><br>
-                    <time>2017</time>
-                </li>
-            </ul>
-        </section>
-        <footer>
-            <p>
-                <img src="img/eventstack.svg" alt="Eventstack" class="tiny-logo">
-                Veemkade 328<br>
-                1019 HD Amsterdam<br>
-                Netherlands
-            </p>
-            <p>
-                Call us on <a href="tel:+31203020020">020 3 020 020</a><br>
-                Email us at <a href="mailto:office@eventstack.nl">office@eventstack.nl</a>
-            </p>
-            <p>
-                Chamber of Commerce: 66351634<br>
-                Tax ID: NL856507830B01<br>
-                IBAN: NL38INGB0007401600
-            </p>
-        </footer>
-    </body>
+		header,
+		footer {
+			text-align: center;
+		}
+		header {
+			padding: 6em 0 5em 0;
+		}
+		header img {
+			max-width: 80%;
+		}
+		header h1 {
+			margin: 2em auto 0 auto;
+			max-width: 440px;
+			padding: 0 1em;
+		}
+		header h1 span {
+			white-space: nowrap;
+		}
+
+		@media screen and (max-width: 40em) {
+			header {
+				padding: 3em 0;
+			}
+			header h1 {
+				font-size: 1.1em;
+				line-height: 1.2;
+				margin: 1.5em auto 0 auto;
+			}
+			header img,
+			.branding img {
+				max-width: 60%;
+			}
+		}
+
+		footer {
+			padding: 3em 1em;
+			line-height: 1.5;
+		}
+		footer a,
+		footer a:visited {
+			border-bottom: 1px solid currentColor;
+			color: #333;
+			text-decoration: none;
+		}
+		footer a:hover {
+			color: #000;
+		}
+		footer p + p {
+			margin-top: 1.5em;
+		}
+
+		.tiny-logo {
+			display: block;
+			margin: 0 auto .75em auto;
+			width: 150px;
+		}
+		</style>
+		<header>
+				<img src="static/vectors/eventstack.svg" alt="Eventstack">
+				<h1><em>Eventstack</em> produces conferences, workshops and meetups for developers and engineers in <span>the Netherlands</span></h1>
+		</header>
+		</section>
+		<section>
+			<ul>
+				<li class="branding event-functionconf">
+					<h3>
+						<span hidden>FunctionConf</span>
+						<img src="static/vectors/functionconf.svg" alt="FunctionConf">
+					</h3>
+					<em>Tech conference</em><br>
+					<a href="https://functionconf.io/">functionconf.io</a><br>
+					<time>2017</time>
+				</li>
+				<li class="branding event-serverless-amsterdam">
+					<h3>
+						<span hidden>Serverless Amsterdam</span>
+						<img src="static/vectors/serverless-amsterdam.svg" alt="Serverless Amsterdam">
+					</h3>
+					<em>Meetup series</em><br>
+					<a href="http://serverless.amsterdam/">serverless.amsterdam</a><br>
+					<time>2016, 2017</time>
+				</li>
+				<li class="branding event-git-to-great">
+					<h3>
+						<span hidden>Git to Great</span>
+						<img src="static/vectors/git-to-great.svg" alt="Git to Great">
+					</h3>
+					<em>Workshops</em><br>
+					<a href="https://gittogreat.nl/">gittogreat.nl</a><br>
+					<time>2017</time>
+				</li>
+				<li class="branding event-fronteersconf">
+					<h3>
+						<span hidden>Fronteers Conference</span>
+						<img src="static/vectors/fronteers-conference.svg" alt="Fronteers Conference">
+					</h3>
+					<em>Tech conference</em><br>
+					<a href="http://fronteersconf.org/">fronteersconf.org</a><br>
+					<time>2017</time>
+				</li>
+			</ul>
+		</section>
+		<footer>
+			<p>
+				<img class="tiny-logo" src="static/vectors/eventstack.svg" alt="Eventstack">
+				Veemkade 328<br>
+				1019 HD Amsterdam<br>
+				The Netherlands
+			</p>
+			<p>
+				Call us on <a href="tel:+31203020020">020 3 020 020</a><br>
+				Email us at <a href="mailto:office@eventstack.nl">office@eventstack.nl</a>
+			</p>
+			<p>
+				Chamber of Commerce: 66351634<br>
+				VAT ID: <u>NL</u><u>856507830</u><u>B01</u><br>
+				IBAN: <u>NL38</u><u>INGB</u><u>0007</u><u>4016</u><u>00</u>
+			</p>
+		</footer>
+	</body>
 </html>
