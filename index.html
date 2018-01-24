@@ -91,6 +91,26 @@
 		.event-fronteersconf {
 			background: #f2bb00;
 		}
+		.cta {
+			background: green;
+			border-radius: 4px;
+			border: 0;
+			color: #ffffff;
+			display: inline-block;
+			font-family: "Source Sans Pro", sans-serif;
+			font-size: 1.3em;
+			font-weight: 600;
+			padding: .5em 1em;
+			text-decoration: none;
+		}
+		.cta:visited {
+			color: #ffffff;
+			text-decoration: none;
+		}
+		.cta:hover {
+			background: darkgreen;
+			cursor: pointer;
+		}
 
 		header,
 		footer {
@@ -103,12 +123,17 @@
 			max-width: 80%;
 		}
 		header h1 {
-			margin: 2em auto 0 auto;
+			line-height: 1.3em;
+			margin: 2em auto 1em auto;
 			max-width: 440px;
 			padding: 0 1em;
 		}
 		header h1 span {
 			white-space: nowrap;
+		}
+		header h2 {
+			font-weight: normal;
+			margin: auto auto 1.3em auto;
 		}
 
 		@media screen and (max-width: 40em) {
@@ -118,11 +143,17 @@
 			header h1 {
 				font-size: 1.1em;
 				line-height: 1.2;
-				margin: 1.5em auto 0 auto;
+				margin: 1.5em auto .8em auto;
+			}
+			header h2 {
+				font-size: 1.1em;
 			}
 			header img,
 			.branding img {
 				max-width: 60%;
+			}
+			.cta {
+				font-size: 1.1em;
 			}
 		}
 
@@ -152,7 +183,9 @@
 		</style>
 		<header>
 				<img src="static/vectors/eventstack.svg" alt="Eventstack">
-				<h1><em>Eventstack</em> produces conferences, workshops and meetups for developers and engineers in <span>the Netherlands</span></h1>
+				<h1><em>Eventstack</em> produces conferences, workshops and meetups. We focus on brands and topics for developers and engineers in <span>the Netherlands</span>.<br></h1>
+				<h2>Looking for a Dutch conference producer?</h2>
+				<a href="mailto:office@eventstack.nl" class="cta">Contact us</a>
 		</header>
 		</section>
 		<section>
