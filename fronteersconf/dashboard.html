@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Speaker dashboard &bull; Fronteers Conference</title>
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/static/dashboard.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
+		<link rel="preconnect" href="https://api.eventstack.nl/" crossorigin>
+		<script>"ontouchstart" in window && document.documentElement.setAttribute("data-supports", "touch");</script>
+	</head>
+	<body>
+		<div class="banner"><img src="https://tickets.fronteers.nl/static/bitmap/header.png"></div>
+		<nav>
+			<ul>
+				<li data-tab-active><a class="link" href="dashboard">Speaker dashboard</a></li>
+				<li><a class="link" href="travel">Travel details</a></li>
+				<li><a class="link" href="schedule">Events schedule</a></li>
+			</ul>
+		</nav>
+		<header>
+			<h1>Your speaker dashboard</h1>
+			<p>Please fill out the form below, so we can contact you, publish your talk correctly in the conference programme and arrange your travel. Feel free to add or correct details where needed. You can come back to this form at any time to complete or update your information.</p>
+			<p>If you have any questions, about this form or the conference in general, please get in touch with speaker liaison <strong>Thomas van Zuijlen</strong>.</p>
+			<ul class="list">
+				<li>
+					<a class="link" href="tel:+31618318417">
+						<svg class="icon"><use xlink:href="#icon-phone"></svg>
+						<span>+31&nbsp;6&nbsp;1831&nbsp;8417</span>
+					</a>
+				</li>
+				<li>
+					<a class="link" href="mailto:thomas@eventstack.nl">
+						<svg class="icon" data-icon-squeeze><use xlink:href="#icon-envelope"></svg>
+						<span>thomas@eventstack.nl</span>
+					</a>
+				</li>
+				<li>
+					<a class="link" href="https://twitter.com/thomatronic" target="_blank" rel="noopener">
+						<svg class="icon"><use xlink:href="#icon-twitter"></svg>
+						<span>FronteersConf</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<form method="post" action="https://hooks.zapier.com/hooks/catch/1590440/fdno43/" novalidate spellcheck="false" data-visible="false">
+			<input type="hidden" name="id">
+			<section>
+				<h2>Contact and personal details</h2>
+				<p>This information will be transferred and stored securely and will not be publicly released. All personal information will be deleted after the conference.</p>
+				<label for="name">Your name</label>
+				<p>
+					<small>Apologies if we spelled your name wrong, please correct us here.</small>
+					<input id="name" type="text" name="name" maxlength="100">
+				</p>
+				<label for="email">Your email address</label>
+				<p>
+					<small>We will not publish your email address (or any other personal contact information, for that matter).</small>
+					<input id="email" type="email" name="email" maxlength="100">
+				</p>
+				<label for="phone">Your mobile telephone number</label>
+				<p>
+					<small>Please provide a telephone number that we can use to contact you on arrival in Amsterdam and in case of urgencies or emergencies.</small>
+					<input id="phone" type="tel" name="phone" size="30" maxlength="100">
+				</p>
+				<label for="diet">Any dietary requirements or allergies</label>
+				<p><input id="diet" type="text" name="diet" maxlength="100"></p>
+				<label for="apparel">Your apparel (t-shirt) size</label>
+				<p class="select">
+					<select id="apparel" name="apparel">
+						<option value=""></option>
+						<option value="Women's style, XS">Women's style, XS</option>
+						<option value="Women's style, S">Women's style, S</option>
+						<option value="Women's style, M">Women's style, M</option>
+						<option value="Women's style, L">Women's style, L</option>
+						<option value="Women's style, XL">Women's style, XL</option>
+						<option value="Women's style, XXL">Women's style, XXL</option>
+						<option value="Women's style, XXL">Women's style, XXXL</option>
+						<option value="Men's style, XS">Men's style, XS</option>
+						<option value="Men's style, S">Men's style, S</option>
+						<option value="Men's style, M">Men's style, M</option>
+						<option value="Men's style, L">Men's style, L</option>
+						<option value="Men's style, XL">Men's style, XL</option>
+						<option value="Men's style, XXL">Men's style, XXL</option>
+						<option value="Men's style, XXXL">Men's style, XXXL</option>
+					</select>
+					<svg><use xlink:href="#icon-bars"></svg>
+				</p>
+			</section>
+			<section>
+				<h2>About you as a speaker and your talk</h2>
+				<p>These details will be published in the conference programme and on the public website. Please remove any information that you do not wish to share.</p>
+				<label for="country">Your 🏠 country</label>
+				<p>
+					<small>This is just so we can say <em>“this speaker is from &hellip;”</em>, which might not be the country you currently live in or are traveling from.</small>
+					<input id="country" type="text" name="country" size="40" maxlength="50">
+				</p>
+				<label for="affiliation">Company name or affiliation</label>
+				<p><input id="affiliation" type="text" name="affiliation" maxlength="100"></p>
+				<label for="twitter">Your Twitter username</label>
+				<p><input id="twitter" type="text" name="twitter" size="30" maxlength="25"></p>
+				<label for="bio">Short biography</label>
+				<p>
+					<small>Please provide a few lines about yourself and what you do.</small>
+					<textarea id="bio" name="bio" rows="5" maxlength="1000"></textarea>
+				</p>
+				<p>
+					<label for="talk-title">Title of your talk</label>
+					<input id="talk-title" type="text" name="talk-title" maxlength="100">
+				</p>
+				<p>
+					<label for="talk-summary">Short summary of your talk</label>
+					<textarea id="talk-summary" name="talk-summary" rows="5" maxlength="500"></textarea>
+				</p>
+			</section>
+			<footer>
+				<section>
+					<button type="submit">Update</button>
+					<small><var data-prefill-id="updated" data-prefill-format="[Last updated on] D MMMM YYYY [at] HH:MM [CEST]">Retrieving&hellip;</var></small>
+				</section>
+				<section>
+					<h3>
+						<svg data-flip-spin><use xlink:href="#icon-cog"></svg>
+						<span>Sending&hellip;</span>
+					</h3>
+				</section>
+				<section>
+					<h3>
+						<svg><use xlink:href="#icon-checkmark"></svg>
+						<span>Thanks, your details have been&nbsp;updated</span>
+					</h3>
+				</section>
+			</footer>
+		</form>
+		<footer>
+			<a href="/">
+				<span data-hide-when="narrow">Fronteers Conference</span>
+				<span data-hide-when="wide">This</span>
+				<span>is an <img src="/static/vectors/eventstack-medium.svg"> production</span>
+			</a>
+		</footer>
+		<svg hidden>
+			<symbol id="icon-padlock" viewBox="0 0 18 28"><path fill="currentColor" d="M5 12h8v-3c0-2.203-1.797-4-4-4s-4 1.797-4 4v3zM18 13.5v9c0 0.828-0.672 1.5-1.5 1.5h-15c-0.828 0-1.5-0.672-1.5-1.5v-9c0-0.828 0.672-1.5 1.5-1.5h0.5v-3c0-3.844 3.156-7 7-7s7 3.156 7 7v3h0.5c0.828 0 1.5 0.672 1.5 1.5z"></path></symbol>
+			<symbol id="icon-phone" viewBox="0 0 22 28"><path fill="currentColor" d="M22 19.375c0 0.562-0.25 1.656-0.484 2.172-0.328 0.766-1.203 1.266-1.906 1.656-0.922 0.5-1.859 0.797-2.906 0.797-1.453 0-2.766-0.594-4.094-1.078-0.953-0.344-1.875-0.766-2.734-1.297-2.656-1.641-5.859-4.844-7.5-7.5-0.531-0.859-0.953-1.781-1.297-2.734-0.484-1.328-1.078-2.641-1.078-4.094 0-1.047 0.297-1.984 0.797-2.906 0.391-0.703 0.891-1.578 1.656-1.906 0.516-0.234 1.609-0.484 2.172-0.484 0.109 0 0.219 0 0.328 0.047 0.328 0.109 0.672 0.875 0.828 1.188 0.5 0.891 0.984 1.797 1.5 2.672 0.25 0.406 0.719 0.906 0.719 1.391 0 0.953-2.828 2.344-2.828 3.187 0 0.422 0.391 0.969 0.609 1.344 1.578 2.844 3.547 4.813 6.391 6.391 0.375 0.219 0.922 0.609 1.344 0.609 0.844 0 2.234-2.828 3.187-2.828 0.484 0 0.984 0.469 1.391 0.719 0.875 0.516 1.781 1 2.672 1.5 0.313 0.156 1.078 0.5 1.188 0.828 0.047 0.109 0.047 0.219 0.047 0.328z"></path></symbol>
+			<symbol id="icon-envelope" viewBox="0 0 20 20"><path fill="currentColor" d="M18 2c1.105 0 2 0.895 2 2v0 12c0 1.105-0.895 2-2 2v0h-16c-1.105 0-2-0.895-2-2v0-12c0-1.1 0.9-2 2-2h16zM13.63 11.1l6.37 4.9v-2l-5.12-3.9 5.12-4.1v-2l-10 8-10-8v2l5.12 4.1-5.12 3.9v2l6.37-4.9 3.63 2.9 3.63-2.9z"></path></symbol>
+			<symbol id="icon-twitter" viewBox="0 0 26 28"><path fill="currentColor" d="M25.312 6.375c-0.688 1-1.547 1.891-2.531 2.609 0.016 0.219 0.016 0.438 0.016 0.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-0.828-7.75-2.266 0.406 0.047 0.797 0.063 1.219 0.063 2.359 0 4.531-0.797 6.266-2.156-2.219-0.047-4.078-1.5-4.719-3.5 0.313 0.047 0.625 0.078 0.953 0.078 0.453 0 0.906-0.063 1.328-0.172-2.312-0.469-4.047-2.5-4.047-4.953v-0.063c0.672 0.375 1.453 0.609 2.281 0.641-1.359-0.906-2.25-2.453-2.25-4.203 0-0.938 0.25-1.797 0.688-2.547 2.484 3.062 6.219 5.063 10.406 5.281-0.078-0.375-0.125-0.766-0.125-1.156 0-2.781 2.25-5.047 5.047-5.047 1.453 0 2.766 0.609 3.687 1.594 1.141-0.219 2.234-0.641 3.203-1.219-0.375 1.172-1.172 2.156-2.219 2.781 1.016-0.109 2-0.391 2.906-0.781z"></path></symbol>
+			<symbol id="icon-calendar" viewBox="0 0 26 28"><path fill="currentColor" d="M24 4c1.094 0 2 0.906 2 2v20c0 1.094-0.906 2-2 2h-22c-1.094 0-2-0.906-2-2v-20c0-1.094 0.906-2 2-2h2v-1.5c0-1.375 1.125-2.5 2.5-2.5h1c1.375 0 2.5 1.125 2.5 2.5v1.5h6v-1.5c0-1.375 1.125-2.5 2.5-2.5h1c1.375 0 2.5 1.125 2.5 2.5v1.5h2zM18 2.5v4.5c0 0.281 0.219 0.5 0.5 0.5h1c0.281 0 0.5-0.219 0.5-0.5v-4.5c0-0.281-0.219-0.5-0.5-0.5h-1c-0.281 0-0.5 0.219-0.5 0.5zM6 2.5v4.5c0 0.281 0.219 0.5 0.5 0.5h1c0.281 0 0.5-0.219 0.5-0.5v-4.5c0-0.281-0.219-0.5-0.5-0.5h-1c-0.281 0-0.5 0.219-0.5 0.5zM24 26v-16h-22v16h22zM14 17h3.5c0.281 0 0.5 0.219 0.5 0.5v1c0 0.281-0.219 0.5-0.5 0.5h-3.5v3.5c0 0.281-0.219 0.5-0.5 0.5h-1c-0.281 0-0.5-0.219-0.5-0.5v-3.5h-3.5c-0.281 0-0.5-0.219-0.5-0.5v-1c0-0.281 0.219-0.5 0.5-0.5h3.5v-3.5c0-0.281 0.219-0.5 0.5-0.5h1c0.281 0 0.5 0.219 0.5 0.5v3.5z"></path></symbol>
+			<symbol id="icon-bars" viewBox="0 0 24 28"><path fill="currentColor" d="M24 21v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 13v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 5v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1z"></path></symbol>
+			<symbol id="icon-cog" viewBox="0 0 24 28"><path fill="cornflowerblue" d="M16 14c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zM24 12.297v3.469c0 0.234-0.187 0.516-0.438 0.562l-2.891 0.438c-0.172 0.5-0.359 0.969-0.609 1.422 0.531 0.766 1.094 1.453 1.672 2.156 0.094 0.109 0.156 0.25 0.156 0.391s-0.047 0.25-0.141 0.359c-0.375 0.5-2.484 2.797-3.016 2.797-0.141 0-0.281-0.063-0.406-0.141l-2.156-1.687c-0.453 0.234-0.938 0.438-1.422 0.594-0.109 0.953-0.203 1.969-0.453 2.906-0.063 0.25-0.281 0.438-0.562 0.438h-3.469c-0.281 0-0.531-0.203-0.562-0.469l-0.438-2.875c-0.484-0.156-0.953-0.344-1.406-0.578l-2.203 1.672c-0.109 0.094-0.25 0.141-0.391 0.141s-0.281-0.063-0.391-0.172c-0.828-0.75-1.922-1.719-2.578-2.625-0.078-0.109-0.109-0.234-0.109-0.359 0-0.141 0.047-0.25 0.125-0.359 0.531-0.719 1.109-1.406 1.641-2.141-0.266-0.5-0.484-1.016-0.641-1.547l-2.859-0.422c-0.266-0.047-0.453-0.297-0.453-0.562v-3.469c0-0.234 0.187-0.516 0.422-0.562l2.906-0.438c0.156-0.5 0.359-0.969 0.609-1.437-0.531-0.75-1.094-1.453-1.672-2.156-0.094-0.109-0.156-0.234-0.156-0.375s0.063-0.25 0.141-0.359c0.375-0.516 2.484-2.797 3.016-2.797 0.141 0 0.281 0.063 0.406 0.156l2.156 1.672c0.453-0.234 0.938-0.438 1.422-0.594 0.109-0.953 0.203-1.969 0.453-2.906 0.063-0.25 0.281-0.438 0.562-0.438h3.469c0.281 0 0.531 0.203 0.562 0.469l0.438 2.875c0.484 0.156 0.953 0.344 1.406 0.578l2.219-1.672c0.094-0.094 0.234-0.141 0.375-0.141s0.281 0.063 0.391 0.156c0.828 0.766 1.922 1.734 2.578 2.656 0.078 0.094 0.109 0.219 0.109 0.344 0 0.141-0.047 0.25-0.125 0.359-0.531 0.719-1.109 1.406-1.641 2.141 0.266 0.5 0.484 1.016 0.641 1.531l2.859 0.438c0.266 0.047 0.453 0.297 0.453 0.562z"></path></symbol>
+			<symbol id="icon-checkmark" viewBox="0 0 24 28"><path fill="seagreen" d="M20.062 11.469c0-0.266-0.094-0.531-0.281-0.719l-1.422-1.406c-0.187-0.187-0.438-0.297-0.703-0.297s-0.516 0.109-0.703 0.297l-6.375 6.359-3.531-3.531c-0.187-0.187-0.438-0.297-0.703-0.297s-0.516 0.109-0.703 0.297l-1.422 1.406c-0.187 0.187-0.281 0.453-0.281 0.719s0.094 0.516 0.281 0.703l5.656 5.656c0.187 0.187 0.453 0.297 0.703 0.297 0.266 0 0.531-0.109 0.719-0.297l8.484-8.484c0.187-0.187 0.281-0.438 0.281-0.703zM24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z"></path></symbol>
+		</svg>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fecha/2.3.3/fecha.min.js"></script>
+		<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+		<script src="/static/dashboard.js"></script>
+		<script>
+		// Prefill:
+		eventstack.prefill(document.forms[0]);
+
+		// Toggle form footer:
+		(function(target) {
+			var observer = new IntersectionObserver(
+				function(events) {
+					target.setAttribute("data-visible", events.some(function(event) {
+						return event.isIntersecting;
+					}));
+				},
+				{rootMargin: "0px 0px -250px 0px"}
+			);
+			setTimeout(function() {
+				observer.observe(target);
+			}, 0);
+		})(document.forms[0]);
+		</script>
+	</body>
+</html>

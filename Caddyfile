@@ -1,0 +1,4 @@
+eventstack.nl.test:8080 {
+	tls self_signed
+	ext .html
+}
