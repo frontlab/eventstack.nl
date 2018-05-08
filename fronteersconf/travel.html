@@ -10,7 +10,11 @@
 		<script>"ontouchstart" in window && document.documentElement.setAttribute("data-supports", "touch");</script>
 	</head>
 	<body>
-		<div class="banner"><img src="/static/bitmaps/header.png"></div>
+		<div class="banner">
+			<img
+				srcset="/static/bitmaps/header.large.png 1200w, /static/bitmaps/header.small.png 600w"
+				src="/static/bitmaps/header.large.png">
+		</div>
 		<nav>
 			<ul>
 				<li><a class="link" href="dashboard">Speaker dashboard</a></li>

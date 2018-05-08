@@ -671,23 +671,16 @@ input:not(:checked) ~ .dialog {
 }
 
 .upload > img {
-	-webkit-animation: flip 1s ease-in-out forwards;
-	animation: flip 1s ease-in-out forwards;
-	-webkit-transition: -webkit-filter 500ms;
-	opacity: 0;
-	padding: 0.5rem;
-}
-.upload > img[src] {
 	-webkit-animation: flip 500ms ease-in-out forwards;
 	animation: flip 500ms ease-in-out forwards;
+	opacity: 0;
 	width: 100%;
 	height: calc(100% - 2.5rem);
 	-o-object-fit: cover;
 	object-fit: cover;
+	padding: 0.5rem;
 }
-.upload > img:not([src]) {
-	display: none;
-}
+.upload > img:not([src]),
 .upload > img[src] ~ svg {
 	display: none;
 }
@@ -703,8 +696,6 @@ input:not(:checked) ~ .dialog {
 }
 
 .upload > button {
-	-webkit-transition: opacity 200ms ease-in-out;
-	transition: opacity 200ms ease-in-out;
 	position: relative;
 	z-index: 1;
 	min-width: 8.75rem;
@@ -716,9 +707,8 @@ input:not(:checked) ~ .dialog {
 }
 
 .upload[data-state="sending"] > button {
-	-webkit-transition: none;
-	transition: none;
 	opacity: 0;
+	pointer-events: none;
 }
 .upload[data-state="sending"]::after {
 	-webkit-animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
@@ -772,13 +762,9 @@ input:not(:checked) ~ .dialog {
 		padding: 0 1rem;
 	}
 	section {
-		margin: 0;
+		margin: 0 !important;
 		width: 100%;
 		padding: 2rem 1rem;
-	}
-	section + section {
-		margin-top: 0;
-		border-top: 0.25rem solid rgba(0, 0, 0, 0.05);
 	}
 	h1 {
 		text-align: center;
