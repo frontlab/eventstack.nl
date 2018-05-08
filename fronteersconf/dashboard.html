@@ -10,7 +10,11 @@
 		<script>"ontouchstart" in window && document.documentElement.setAttribute("data-supports", "touch");</script>
 	</head>
 	<body>
-		<div class="banner"><img src="/static/bitmaps/header.png"></div>
+		<div class="banner">
+			<img
+				srcset="/static/bitmaps/header.large.png 1200w, /static/bitmaps/header.small.png 600w"
+				src="/static/bitmaps/header.large.png">
+		</div>
 		<nav>
 			<ul>
 				<li data-tab-active><a class="link" href="dashboard">Speaker dashboard</a></li>
@@ -175,6 +179,9 @@
 		eventstack.handle(document.forms[0]);
 		// Toggle form footer:
 		(function(target) {
+			if(!localStorage.speakerId) {
+				return;
+			}
 			var observer = new IntersectionObserver(
 				function(events) {
 					target.setAttribute("data-visible", events.some(function(event) {
@@ -183,9 +190,7 @@
 				},
 				{rootMargin: "0px 0px -250px 0px"}
 			);
-			setTimeout(function() {
-				observer.observe(target);
-			}, 0);
+			observer.observe(target);
 		})(document.forms[0]);
 		</script>
 	</body>
