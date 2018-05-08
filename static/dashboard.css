@@ -1,5 +1,7 @@
 /* Reset */
-* {
+*,
+*::before,
+*::after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: 0;
@@ -35,6 +37,7 @@ time {
 
 /* Baseline */
 html {
+	height: 100%;
 	background: black;
 	font-display: optional;
 	font-family: "Source Sans Pro", sans-serif;
@@ -44,6 +47,7 @@ html {
 
 /* Layout */
 body {
+	position: relative;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -54,31 +58,26 @@ body {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background-color: white;
-}
-/* For continuous color when over-scrolling: */
-body::before {
-	position: fixed;
-	bottom: 100%;
-	left: 0;
-	right: 0;
-	height: 25vh;
-	background-color: #f1c8d8;
-	content: "";
+	min-height: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+	background: linear-gradient(white, white);
+	padding-bottom: 2rem;
 }
 
 /* Logo banner */
 .banner {
+	-webkit-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 	width: 100%;
-	background-color: #f1c8d8;
+	background-color: #d8baff;
+	padding: 1rem 0.5rem;
 	text-align: center;
 }
 .banner > img {
 	width: 100%;
-	max-width: 25rem;
+	max-width: 30rem;
 	height: auto;
 	vertical-align: top;
-	padding: 1rem;
 }
 
 /* Navigation */
@@ -89,7 +88,7 @@ nav > ul {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	margin: 1rem 0 3.5rem 0;
+	margin-top: 1rem;
 	font-weight: 600;
 }
 nav > ul > li {
@@ -102,7 +101,7 @@ nav li + li {
 nav li[data-tab-active] {
 	position: relative;
 	border-radius: 0.25rem;
-	background-color: black;
+	background-color: #826dff;
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
 }
@@ -115,7 +114,7 @@ nav li[data-tab-active]::before {
 	height: 0;
 	border-style: solid;
 	border-width: 10px 10px 0 10px;
-	border-color: black transparent transparent transparent;
+	border-color: #826dff transparent transparent transparent;
 	content: "";
 }
 nav li[data-tab-active] > a {
@@ -130,7 +129,7 @@ header {
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	margin-bottom: 1rem;
+	margin: 3.5rem 0;
 	max-width: 35rem;
 	padding: 0 2rem;
 }
@@ -148,7 +147,7 @@ section {
 	margin-right: 1rem;
 	width: calc(100% - 2rem);
 	max-width: 35rem;
-	background-color: #eee;
+	background-color: #efecff;
 	padding: 2rem;
 }
 section + section {
@@ -156,6 +155,10 @@ section + section {
 }
 
 body > footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -181,8 +184,8 @@ body > footer img {
 }
 
 /* Form  */
-form {
-	padding-bottom: 6.5rem;
+form > section:last-of-type {
+	border-bottom: 4.5rem solid #efecff;
 }
 form > footer {
 	-webkit-transition: -webkit-transform 350ms;
@@ -193,8 +196,9 @@ form > footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	z-index: 2;
+	-webkit-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 	height: 6.5rem;
 	overflow: hidden;
 }
@@ -227,12 +231,12 @@ form > footer small {
 }
 form > footer h3 {
 	margin: 0;
-	padding-left: 3.25rem;
+	padding-left: 3.5rem;
 	font-weight: 600;
 }
 form > footer svg {
 	float: left;
-	margin: -0.65rem 0 0 -3.25rem;
+	margin: -0.5rem 0 0 -3.25rem;
 	width: 2.5rem;
 	height: 2.5rem;
 }
@@ -243,6 +247,20 @@ form + footer {
 form[data-state="sending"] > footer > section {
 	-webkit-transform: translateY(-100%);
 	transform: translateY(-100%);
+}
+form[data-state="sending"] section:nth-of-type(2) > h3::before {
+	-webkit-animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
+	animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
+	-webkit-transform: rotate(-1turn);
+	transform: rotate(-1turn);
+	float: left;
+	margin: -0.5rem 0 0 -3.5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: 0.25rem solid #efecff;
+	border-top-color: #826dff;
+	border-radius: 50%;
+	content: "";
 }
 form[data-state="sent"] > footer > section {
 	-webkit-transform: translateY(-200%);
@@ -271,9 +289,9 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-	-webkit-box-shadow: 0 0 0 1px cornflowerblue;
-	box-shadow: 0 0 0 1px cornflowerblue;
-	border-color: cornflowerblue;
+	-webkit-box-shadow: 0 0 0 1px #826dff;
+	box-shadow: 0 0 0 1px #826dff;
+	border-color: #826dff;
 }
 input {
 	height: 2.25rem;
@@ -303,16 +321,20 @@ button {
 	height: 3rem;
 	min-width: 10rem;
 	border-radius: 0.25rem;
-	background-color: seagreen;
+	background-color: #5bab40;
 	padding: 0 1rem;
 	font-size: 1.25rem;
 	font-weight: 600;
 	color: white;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 html:not([data-supports~="touch"]) button:hover,
 button:focus {
-	-webkit-box-shadow: 0 0 0 2px white, 0 0 0 4px cornflowerblue;
-	box-shadow: 0 0 0 2px white, 0 0 0 4px cornflowerblue;
+	-webkit-box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
+	box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 	border-radius: 0.125rem;
 }
 
@@ -335,6 +357,13 @@ h1 {
 h2 {
 	margin-bottom: 0.5rem;
 	font-size: 1.5rem;
+}
+h2 small {
+	display: block;
+	margin: 0.125rem 0 1rem 0;
+	font-size: 0.75rem;
+	font-weight: normal;
+	color: slategray;
 }
 h3 {
 	margin-bottom: 0.25rem;
@@ -370,13 +399,8 @@ caption {
 	font-weight: 600;
 	color: slategray;
 }
-caption small {
-	display: block;
-	font-size: 0.75rem;
-	font-weight: normal;
-}
 tr:nth-of-type(odd) {
-	background-color: rgba(0, 0, 0, 0.045);
+	background-color: rgba(0, 0, 0, 0.035);
 }
 tr > * {
 	padding: 0.5rem;
@@ -411,7 +435,7 @@ td small {
 	transition: border-color 200ms 25ms;
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
-	color: cornflowerblue;
+	color: #826dff;
 }
 html:not([data-supports~="touch"]) .link:hover,
 .link:focus {
@@ -444,11 +468,11 @@ html:not([data-supports~="touch"]) .link:hover,
 	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
-	margin: 1.75rem 0;
+	margin-top: 1.5rem;
 }
 .list > li {
 	border-radius: 0.25rem;
-	background-color: #eee;
+	background-color: #efecff;
 }
 .list[data-list-inverted] > li {
 	background-color: white;
@@ -496,7 +520,7 @@ html:not([data-supports~="touch"]) .list a:hover > span,
 	height: 6.25rem;
 	border-radius: 50%;
 	background-color: white;
-	color: cornflowerblue;
+	color: #826dff;
 	cursor: default;
 }
 .download::before {
@@ -509,7 +533,7 @@ html:not([data-supports~="touch"]) .list a:hover > span,
 	right: 0;
 	opacity: 0;
 	margin: 3px;
-	border: 2px solid cornflowerblue;
+	border: 2px solid #826dff;
 	border-radius: 50%;
 	content: "";
 	pointer-events: none;
@@ -528,8 +552,8 @@ html:not([data-supports~="touch"]) .download:hover::before,
 	display: block;
 	width: 85%;
 	text-align: center;
-	line-height: 1.05;
-	font-size: 0.875rem;
+	line-height: 1.15;
+	font-size: 0.8125rem;
 }
 .download + h2 {
 	padding-right: 5rem;
@@ -578,7 +602,7 @@ html:not([data-supports~="touch"]) .download:hover::before,
 	width: 100%;
 	height: 100%;
 	padding: 1rem;
-	color: cornflowerblue;
+	color: #826dff;
 }
 .dialog > label::before {
 	-webkit-transform: translateX(-50%) translateY(-50%);
@@ -607,6 +631,113 @@ input:not(:checked) ~ .dialog {
 	pointer-events: none;
 }
 
+
+/* File (mostly image) uploads */
+.upload {
+	-ms-flex-item-align: center;
+	align-self: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	width: 20rem;
+	height: 22.5rem;
+	border: 1px solid #ccc;
+	border-radius: 0.175rem;
+	background-color: white;
+	padding-bottom: 0.5rem;
+}
+
+.upload > input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	padding: 0;
+}
+
+.upload > img {
+	-webkit-animation: flip 1s ease-in-out forwards;
+	animation: flip 1s ease-in-out forwards;
+	-webkit-transition: -webkit-filter 500ms;
+	opacity: 0;
+	padding: 0.5rem;
+}
+.upload > img[src] {
+	-webkit-animation: flip 500ms ease-in-out forwards;
+	animation: flip 500ms ease-in-out forwards;
+	width: 100%;
+	height: calc(100% - 2.5rem);
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+.upload > img:not([src]) {
+	display: none;
+}
+.upload > img[src] ~ svg {
+	display: none;
+}
+.upload > img[src] ~ button::before {
+	content: attr(data-upload-label)
+}
+
+.upload > svg {
+	margin-bottom: 0.5rem;
+	width: 8.75rem;
+	height: auto;
+	color: #eee;
+}
+
+.upload > button {
+	-webkit-transition: opacity 200ms ease-in-out;
+	transition: opacity 200ms ease-in-out;
+	position: relative;
+	z-index: 1;
+	min-width: 8.75rem;
+	height: 2.5rem;
+	font-size: 1rem;
+}
+.upload > button::before {
+	content: attr(data-upload-placeholder);
+}
+
+.upload[data-state="sending"] > button {
+	-webkit-transition: none;
+	transition: none;
+	opacity: 0;
+}
+.upload[data-state="sending"]::after {
+	-webkit-animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
+	animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
+	-webkit-transform: rotate(-1turn);
+	transform: rotate(-1turn);
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	z-index: 1;
+	margin: 0 0 0.5rem -1.25rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: 0.25rem solid #efecff;
+	border-top-color: #826dff;
+	border-radius: 50%;
+	content: "";
+}
+
 /* Responsive all the things! /o/ */
 @media (max-width: 560px) {
 	nav > ul {
@@ -630,6 +761,10 @@ input:not(:checked) ~ .dialog {
 	}
 	input {
 		width: 100% !important;
+	}
+	.upload {
+		width: 17.5rem;
+		height: 20rem;
 	}
 }
 @media (max-width: 420px) {
@@ -660,6 +795,13 @@ input:not(:checked) ~ .dialog {
 		padding-right: 1rem;
 	}
 }
+@media (max-width: 380px) {
+	.upload {
+		margin-top: 0;
+		width: 100%;
+		max-width: none;
+	}
+}
 
 /* Responsive helpers */
 @media (min-width: 561px) {
@@ -673,23 +815,18 @@ input:not(:checked) ~ .dialog {
 	}
 }
 
-/* FLIP animation: */
-[data-flip-spin] {
-	-webkit-animation: flip 2s linear infinite;
-	animation: flip 2s linear infinite;
-	-webkit-transform: rotate(-1turn);
-	transform: rotate(-1turn);
-}
-
+/* FLIP animation */
 @-webkit-keyframes flip {
 	to {
 		-webkit-transform: none;
 		transform: none;
+		opacity: 1;
 	}
 }
 @keyframes flip {
 	to {
 		-webkit-transform: none;
 		transform: none;
+		opacity: 1;
 	}
 }
