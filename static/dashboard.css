@@ -98,14 +98,15 @@ nav > ul > li {
 nav li + li {
 	margin-left: 1.5rem;
 }
-nav li[data-tab-active] {
+nav li[data-state="active"] {
 	position: relative;
 	border-radius: 0.25rem;
 	background-color: #826dff;
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
+	color: white;
 }
-nav li[data-tab-active]::before {
+nav li[data-state="active"]::before {
 	position: absolute;
 	top: 100%;
 	left: 50%;
@@ -117,7 +118,7 @@ nav li[data-tab-active]::before {
 	border-color: #826dff transparent transparent transparent;
 	content: "";
 }
-nav li[data-tab-active] > a {
+nav li[data-state="active"] > a {
 	color: white;
 }
 
@@ -192,7 +193,7 @@ form > footer {
 	transition: -webkit-transform 350ms;
 	transition: transform 350ms;
 	transition: transform 350ms, -webkit-transform 350ms;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -205,6 +206,9 @@ form > footer {
 form[data-visible="false"] > footer {
 	-webkit-transform: translateY(100%);
 	transform: translateY(100%);
+}
+form[data-visible="true"] > footer {
+	position: fixed;
 }
 form > footer > section {
 	-webkit-transition: -webkit-transform ease-out 200ms;
@@ -450,12 +454,9 @@ html:not([data-supports~="touch"]) .link:hover,
 	height: 1.25em;
 	vertical-align: -0.275em;
 }
-.icon[data-icon-squeeze] {
-	padding: 0.075em;
-}
 
 /* Contact details */
-.list {
+.contact {
 	-ms-flex-item-align: center;
 	align-self: center;
 	display: -webkit-box;
@@ -468,39 +469,57 @@ html:not([data-supports~="touch"]) .link:hover,
 	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 }
-.list > li {
+.contact > li:not(:last-of-type) {
 	border-radius: 0.25rem;
 	background-color: #efecff;
 }
-.list[data-list-inverted] > li {
-	background-color: white;
-}
-.list > li + li {
+.contact > li + li {
 	margin-top: 0.5rem;
 }
-.list > li > a {
+.contact > li > .link {
+	-webkit-transition: color 200ms 25ms;
+	transition: color 200ms 25ms;
 	display: block;
 	border: none;
 	padding: 0.25rem 1rem 0.25rem 0.5rem;
 	line-height: 1.75;
 }
-.list a > span {
+html:not([data-supports~="touch"]) .contact > li > .link:hover,
+.contact > li > .link:focus {
+	color: #826dff;
+}
+
+.contact .link > span {
 	-webkit-transition: border-color 200ms 25ms;
 	transition: border-color 200ms 25ms;
 	border-bottom: 2px solid transparent;
 }
-html:not([data-supports~="touch"]) .list a:hover > span,
-.list a:focus > span {
+html:not([data-supports~="touch"]) .contact .link:hover > span,
+.contact .link:focus > span {
 	border-color: currentColor;
 }
 
-/* Download buttons */
-.download {
+.contact > li:last-of-type > .link {
+	color: slategray;
+}
+.contact > li:last-of-type span {
+	vertical-align: 1px;
+	font-size: 0.8125rem;
+}
+
+section > .contact > li:not(:last-of-type) {
+	background-color: white;
+}
+
+/* Stickers */
+.sticker {
+	-webkit-transition: border-color 250ms 25ms, color 250ms 25ms;
+	transition: border-color 250ms 25ms, color 250ms 25ms;
 	position: absolute;
-	top: -2rem;
-	right: 2rem;
+	top: -1.5rem;
+	right: 1.5rem;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -516,46 +535,33 @@ html:not([data-supports~="touch"]) .list a:hover > span,
 	align-items: center;
 	-webkit-box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.05);
 	box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.05);
-	width: 6.25rem;
-	height: 6.25rem;
+	width: 5rem;
+	height: 5rem;
+	border: 2px solid transparent;
 	border-radius: 50%;
 	background-color: white;
-	color: #826dff;
+	color: slategray;
 	cursor: default;
 }
-.download::before {
-	-webkit-transition: opacity ease-in-out 250ms 25ms;
-	transition: opacity ease-in-out 250ms 25ms;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	opacity: 0;
-	margin: 3px;
-	border: 2px solid #826dff;
-	border-radius: 50%;
-	content: "";
-	pointer-events: none;
+html:not([data-supports~="touch"]) .sticker:hover,
+.sticker:focus {
+	border-color: currentColor;
+	color: #826dff;
 }
-html:not([data-supports~="touch"]) .download:hover::before,
-.download:focus::before {
-	opacity: 1;
-}
-.download > svg {
+.sticker > svg {
 	display: block;
-	margin-bottom: 0.5rem;
-	width: 35%;
-	height: 35%;
+	margin-bottom: 0.25rem;
+	width: 1.25rem;
+	height: 1.25rem;
 }
-.download > span {
+.sticker > span {
 	display: block;
 	width: 85%;
 	text-align: center;
 	line-height: 1.15;
 	font-size: 0.8125rem;
 }
-.download + h2 {
+.sticker + h2 {
 	padding-right: 5rem;
 }
 
@@ -743,7 +749,7 @@ input:not(:checked) ~ .dialog {
 		order: 0;
 		margin: 0 1rem;
 	}
-	nav > ul > li[data-tab-active] {
+	nav > ul > li[data-state="active"] {
 		-webkit-box-ordinal-group: 2;
 		-ms-flex-order: 1;
 		order: 1;
@@ -759,6 +765,7 @@ input:not(:checked) ~ .dialog {
 }
 @media (max-width: 420px) {
 	header {
+		margin-top: 1.75rem;
 		padding: 0 1rem;
 	}
 	section {
@@ -767,6 +774,7 @@ input:not(:checked) ~ .dialog {
 		padding: 2rem 1rem;
 	}
 	h1 {
+		margin-bottom: 2.5rem;
 		text-align: center;
 	}
 	table {

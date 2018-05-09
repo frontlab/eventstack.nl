@@ -23,8 +23,8 @@ eventstack.prefill = function(form){
 			var target = (form && form.elements[id]) || document.querySelector('[data-prefill-id="' + id + '"]');
 			if(target) {
 				if(BOOLEAN_FIELDS.includes(key)) {
-					data.fields[key] && target.querySelector("[data-prefill-true]").removeAttribute("hidden");
-					!data.fields[key] && target.querySelector("[data-prefill-false]").removeAttribute("hidden");
+					data.fields[key] && target.querySelector('[data-prefill-when="true"]').removeAttribute("hidden");
+					!data.fields[key] && target.querySelector('[data-prefill-when="false"]').removeAttribute("hidden");
 				}
 				else if(IMAGE_FIELDS.includes(key)) {
 					var proxy = new Image();
