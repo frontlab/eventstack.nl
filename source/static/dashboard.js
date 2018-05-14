@@ -1,17 +1,53 @@
-// Namespacin'
-eventstack = window.eventstack || {};
+// Copy speaker ID from the URL hash to local storage for future reference:
+if(location.hash) {
+	localStorage.setItem("speakerId", location.hash.substr(1));
+	history.replaceState({}, "", location.pathname);
+}
 
-// Retrieve and prefill (form) data:
-eventstack.prefill = function(form){
-	if(!localStorage.speakerId) {
-		return;
-	}
+// Do stuff when the escape key is pressed:
+(function(toggles) {
+	document.addEventListener("keydown", function(event) {
+		switch(event.key) {
+			case "Escape":
+				Array.from(toggles).forEach(function(toggle) { toggle.checked = false; });
+				break;
+		}
+	})
+})(document.querySelectorAll("[data-dialog-toggle]"));
+
+
+// Dashboard prefill:
+document.body.hasAttribute("data-prefill") && (function(form) {
+
 	// Constants:
 	var DATA_URL = "https://api.eventstack.nl/fronteersconf/speakers/" + localStorage.speakerId + "?" + Date.now();
 	var BOOLEAN_FIELDS = ["Books own travel"];
-	var IMAGE_FIELDS = ["Photo"];
 	var DATETIME_FIELDS = ["Arrives when", "Departs when", "Updated"];
-	// Git fetchin':
+	var IMAGE_FIELDS = ["Photo"];
+
+	// Elements:
+	var form = document.querySelector("[data-prefill-form]");
+
+	// Handle form submit (if a form exists):
+	form && form.addEventListener("submit", function(event) {
+		event.preventDefault();
+		if(!localStorage.speakerId) {
+			return;
+		}
+		fetch(form.action, { method: form.method, body: new FormData(form) })
+		.then(function() {
+			setTimeout(function() {
+				form.setAttribute("data-state", "sent");
+				setTimeout(function() { form.removeAttribute("data-state"); }, 3000);
+			}, 500);
+	 	});
+		form.setAttribute("data-state", "sending");
+	});
+
+	// Retrieve and prefill:
+	if(!localStorage.speakerId) {
+		return;
+	}
 	fetch(DATA_URL)
 	.then(function(response) { return response.json(); })
 	.then(function(data) {
@@ -46,38 +82,61 @@ eventstack.prefill = function(form){
 		document.documentElement.setAttribute("data-state", "retrieved");
 	});
 	document.documentElement.setAttribute("data-state", "retrieving");
-};
 
-// Submit form data (if a form exists):
-eventstack.handle = function(form) {
-	form.addEventListener("submit", function(event) {
-		event.preventDefault();
-		if(!localStorage.speakerId) {
-			return;
+})();
+
+// Dashboard schedule rendering:
+document.body.hasAttribute("data-schedule") && (function() {
+
+	// Constants:
+	var DATA_URL = "https://api.eventstack.nl/fronteersconf/schedule";
+
+	// Elements:
+	var template = document.querySelector("[data-schedule-template]");
+
+	// Fetch and render the schedule:
+	fetch(DATA_URL)
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(data) {
+		if("error" in data) {
+			throw Error("Whale oil beef hooked, thar be an error: " + data.error);
 		}
-		fetch(form.action, { method: form.method, body: new FormData(form) })
-		.then(function() {
-			setTimeout(function() {
-				form.setAttribute("data-state", "sent");
-				setTimeout(function() { form.removeAttribute("data-state"); }, 3000);
-			}, 500);
-	 	});
-		form.setAttribute("data-state", "sending");
+		var data = Object.values(data.records.reduce(function(groups, record) {
+			// Parse known dates:
+			record.fields.Starts = new Date(record.fields.Starts);
+			record.fields.Ends = new Date(record.fields.Ends);
+			// Group records by key:
+			var key = fecha.format(record.fields.Starts, "YYYYMMDD");
+			groups[key] = groups[key] || [];
+			groups[key].push(record);
+			return groups;
+		}, {}));
+		// Render the template:
+		template.parentNode.innerHTML = jsrender.templates(template)(data, {fecha: fecha});
 	});
-};
 
-// Upload stuff:
+})();
+
+// Dashboard photo uploads:
 (function(uploads) {
+
+	// Constants:
+	var UPLOAD_URL = "https://api.eventstack.nl/fronteersconf/speakers/" + localStorage.speakerId + "/photo";
+	var PING_URL = "https://hooks.zapier.com/hooks/catch/1590440/f79g2b/?id=" + localStorage.speakerId;
+
 	Array.from(uploads).forEach(function(upload) {
-		// Constants:
-		var UPLOAD_URL = "https://api.eventstack.nl/fronteersconf/speakers/" + localStorage.speakerId + "/photo";
-		var PING_URL = "https://hooks.zapier.com/hooks/catch/1590440/f79g2b/?id=" + localStorage.speakerId;
+
 		// Elements:
 		var input = upload.querySelector("input");
 		var image = upload.querySelector("img");
 		var button = upload.querySelector("button");
+
 		// Events:
+
 		button.addEventListener("click", function() { input.click(); });
+
 		input.addEventListener("change", function() {
 			image.removeAttribute("src");
 			// Display the new image:
@@ -98,26 +157,6 @@ eventstack.handle = function(form) {
 			});
 			upload.setAttribute("data-state", "sending");
 		});
+
 	});
 })(document.querySelectorAll("[data-upload]"));
-
-// Do stuff when the escape key is pressed:
-(function(toggles) {
-	document.addEventListener("keydown", function(event) {
-		switch(event.key) {
-			case "Escape":
-				Array.from(toggles).forEach(function(toggle) { toggle.checked = false; });
-				break;
-		}
-	})
-})(document.querySelectorAll("[data-dialog-toggle]"));
-
-// Copy speaker ID from the URL hash to local storage for future reference:
-if(location.hash) {
-	localStorage.setItem("speakerId", location.hash.substr(1));
-	history.replaceState({}, "", location.pathname);
-}
-if(!localStorage.speakerId) {
-	var message = "Oops 😳\n\nIt seems that your speaker ID was not remembered since your previous visit. Please refer to the invitation you received by email and follow your personal speaker dashboard link.";
-	requestAnimationFrame(function() { alert(message); });
-}

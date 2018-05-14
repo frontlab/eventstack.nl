@@ -3,7 +3,7 @@
 	<head>
 		<title>Speaker dashboard &bull; Fronteers Conference</title>
 		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" href="/static/dashboard.css">
+		<link rel="stylesheet" href="/static/dashboard.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
 		<link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 		<link rel="preconnect" href="https://api.eventstack.nl/" crossorigin>
@@ -11,11 +11,11 @@
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 	</head>
-	<body>
+	<body data-prefill>
 		<div class="banner">
 			<img
-				srcset="/static/bitmaps/header.large.png 1200w, /static/bitmaps/header.small.png 600w"
-				src="/static/bitmaps/header.large.png">
+				srcset="/static/dashboard-header.large.png 1200w, /static/dashboard-header.small.png 600w"
+				src="/static/dashboard-header.large.png">
 		</div>
 		<nav>
 			<ul>
@@ -56,7 +56,7 @@
 				</li>
 			</ul>
 		</header>
-		<form method="post" action="https://hooks.zapier.com/hooks/catch/1590440/fdno43/" novalidate spellcheck="false" data-visible="false">
+		<form method="post" action="https://hooks.zapier.com/hooks/catch/1590440/fdno43/" novalidate spellcheck="false" data-prefill-form data-visible="false">
 			<input type="hidden" name="id">
 			<section>
 				<h2>Contact and personal details</h2>
@@ -166,26 +166,14 @@
 			<a href="/">
 				<span data-hide-when="narrow">Fronteers Conference</span>
 				<span data-hide-when="wide">This</span>
-				<span>is an <img src="/static/vectors/eventstack-medium.svg"> production</span>
+				<span>is an <img src="/static/logo/eventstack-medium.svg"> production</span>
 			</a>
 		</footer>
-		<svg hidden>
-			<symbol id="icon-phone" viewBox="0 0 22 28"><path fill="currentColor" d="M22 19.375c0 0.562-0.25 1.656-0.484 2.172-0.328 0.766-1.203 1.266-1.906 1.656-0.922 0.5-1.859 0.797-2.906 0.797-1.453 0-2.766-0.594-4.094-1.078-0.953-0.344-1.875-0.766-2.734-1.297-2.656-1.641-5.859-4.844-7.5-7.5-0.531-0.859-0.953-1.781-1.297-2.734-0.484-1.328-1.078-2.641-1.078-4.094 0-1.047 0.297-1.984 0.797-2.906 0.391-0.703 0.891-1.578 1.656-1.906 0.516-0.234 1.609-0.484 2.172-0.484 0.109 0 0.219 0 0.328 0.047 0.328 0.109 0.672 0.875 0.828 1.188 0.5 0.891 0.984 1.797 1.5 2.672 0.25 0.406 0.719 0.906 0.719 1.391 0 0.953-2.828 2.344-2.828 3.187 0 0.422 0.391 0.969 0.609 1.344 1.578 2.844 3.547 4.813 6.391 6.391 0.375 0.219 0.922 0.609 1.344 0.609 0.844 0 2.234-2.828 3.187-2.828 0.484 0 0.984 0.469 1.391 0.719 0.875 0.516 1.781 1 2.672 1.5 0.313 0.156 1.078 0.5 1.188 0.828 0.047 0.109 0.047 0.219 0.047 0.328z"></path></symbol>
-			<symbol id="icon-envelope" viewBox="0 0 20 20"><path fill="currentColor" d="M17 3c0.966 0 1.75 0.784 1.75 1.75v0 10.5c0 0.966-0.784 1.75-1.75 1.75v0h-14c-0.966 0-1.75-0.784-1.75-1.75v0-10.5c0-0.962 0.788-1.75 1.75-1.75h14zM13.176 10.962l5.574 4.288v-1.75l-4.48-3.412 4.48-3.588v-1.75l-8.75 7-8.75-7v1.75l4.48 3.588-4.48 3.412v1.75l5.574-4.287 3.176 2.537 3.176-2.537z"></path></symbol>
-			<symbol id="icon-twitter" viewBox="0 0 26 28"><path fill="currentColor" d="M25.312 6.375c-0.688 1-1.547 1.891-2.531 2.609 0.016 0.219 0.016 0.438 0.016 0.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-0.828-7.75-2.266 0.406 0.047 0.797 0.063 1.219 0.063 2.359 0 4.531-0.797 6.266-2.156-2.219-0.047-4.078-1.5-4.719-3.5 0.313 0.047 0.625 0.078 0.953 0.078 0.453 0 0.906-0.063 1.328-0.172-2.312-0.469-4.047-2.5-4.047-4.953v-0.063c0.672 0.375 1.453 0.609 2.281 0.641-1.359-0.906-2.25-2.453-2.25-4.203 0-0.938 0.25-1.797 0.688-2.547 2.484 3.062 6.219 5.063 10.406 5.281-0.078-0.375-0.125-0.766-0.125-1.156 0-2.781 2.25-5.047 5.047-5.047 1.453 0 2.766 0.609 3.687 1.594 1.141-0.219 2.234-0.641 3.203-1.219-0.375 1.172-1.172 2.156-2.219 2.781 1.016-0.109 2-0.391 2.906-0.781z"></path></symbol>
-			<symbol id="icon-contact" viewBox="0 0 24 24"><path fill="currentColor" d="M17.859 14.016c-0.234-0.609-0.375-1.313-0.375-2.016s0.141-1.406 0.375-2.016h1.641l1.5-1.969-1.969-2.016c-1.313 0.984-2.297 2.344-2.766 3.984-0.188 0.656-0.281 1.313-0.281 2.016s0.094 1.359 0.281 2.016c0.469 1.594 1.453 3 2.766 3.984l1.969-2.016-1.5-1.969h-1.641zM14.016 18v-0.984c0-2.016-3.984-3.094-6-3.094s-6 1.078-6 3.094v0.984h12zM8.016 6c-1.641 0-3 1.359-3 3s1.359 3 3 3 3-1.359 3-3-1.359-3-3-3zM21.984 3c1.078 0 2.016 0.938 2.016 2.016v13.969c0 1.078-0.938 2.016-2.016 2.016h-19.969c-1.078 0-2.016-0.938-2.016-2.016v-13.969c0-1.078 0.938-2.016 2.016-2.016h19.969z"></path></symbol>
-			<symbol id="icon-calendar" viewBox="0 0 26 28"><path fill="currentColor" d="M24 4c1.094 0 2 0.906 2 2v20c0 1.094-0.906 2-2 2h-22c-1.094 0-2-0.906-2-2v-20c0-1.094 0.906-2 2-2h2v-1.5c0-1.375 1.125-2.5 2.5-2.5h1c1.375 0 2.5 1.125 2.5 2.5v1.5h6v-1.5c0-1.375 1.125-2.5 2.5-2.5h1c1.375 0 2.5 1.125 2.5 2.5v1.5h2zM18 2.5v4.5c0 0.281 0.219 0.5 0.5 0.5h1c0.281 0 0.5-0.219 0.5-0.5v-4.5c0-0.281-0.219-0.5-0.5-0.5h-1c-0.281 0-0.5 0.219-0.5 0.5zM6 2.5v4.5c0 0.281 0.219 0.5 0.5 0.5h1c0.281 0 0.5-0.219 0.5-0.5v-4.5c0-0.281-0.219-0.5-0.5-0.5h-1c-0.281 0-0.5 0.219-0.5 0.5zM24 26v-16h-22v16h22zM14 17h3.5c0.281 0 0.5 0.219 0.5 0.5v1c0 0.281-0.219 0.5-0.5 0.5h-3.5v3.5c0 0.281-0.219 0.5-0.5 0.5h-1c-0.281 0-0.5-0.219-0.5-0.5v-3.5h-3.5c-0.281 0-0.5-0.219-0.5-0.5v-1c0-0.281 0.219-0.5 0.5-0.5h3.5v-3.5c0-0.281 0.219-0.5 0.5-0.5h1c0.281 0 0.5 0.219 0.5 0.5v3.5z"></path></symbol>
-			<symbol id="icon-bars" viewBox="0 0 24 28"><path fill="currentColor" d="M24 21v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 13v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 5v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1z"></path></symbol>
-			<symbol id="icon-cross" viewBox="0 0 32 32"><path fill="currentColor" d="M30.721 6.774l-9.197 9.253 9.197 9.198c0.385 0.384 0.385 1.007 0 1.392l-4.176 4.175c-0.383 0.385-1.006 0.385-1.391 0l-9.182-9.182-9.127 9.182c-0.384 0.385-1.007 0.385-1.392 0l-4.175-4.175c-0.384-0.385-0.384-1.008 0-1.392l9.127-9.182-9.126-9.126c-0.384-0.384-0.384-1.007 0-1.392l4.175-4.175c0.384-0.385 1.007-0.385 1.392 0l9.11 9.11 9.199-9.253c0.385-0.385 1.008-0.385 1.391 0l4.176 4.175c0.383 0.385 0.383 1.008-0.001 1.392z"></path></symbol>
-			<symbol id="icon-checkmark" viewBox="0 0 24 28"><path fill="seagreen" d="M20.062 11.469c0-0.266-0.094-0.531-0.281-0.719l-1.422-1.406c-0.187-0.187-0.438-0.297-0.703-0.297s-0.516 0.109-0.703 0.297l-6.375 6.359-3.531-3.531c-0.187-0.187-0.438-0.297-0.703-0.297s-0.516 0.109-0.703 0.297l-1.422 1.406c-0.187 0.187-0.281 0.453-0.281 0.719s0.094 0.516 0.281 0.703l5.656 5.656c0.187 0.187 0.453 0.297 0.703 0.297 0.266 0 0.531-0.109 0.719-0.297l8.484-8.484c0.187-0.187 0.281-0.438 0.281-0.703zM24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z"></path></symbol>
-		</svg>
+		<!--=include ../include/dashboard-icons.html -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/fecha/2.3.3/fecha.min.js"></script>
 		<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-		<script src="/static/dashboard.js"></script>
+		<script src="/static/dashboard.min.js"></script>
 		<script>
-		// Prefill:
-		eventstack.prefill(document.forms[0]);
-		eventstack.handle(document.forms[0]);
 		// Toggle form footer:
 		(function(target) {
 			if(!localStorage.speakerId) {
