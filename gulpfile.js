@@ -8,7 +8,7 @@ var pump = require("pump");
 
 
 gulp.task("clean", function() {
-	return gulp.src("./target", {read: false})
+	return gulp.src("./target", {allowEmpty: true, read: false})
 	.pipe(clean());
 });
 
