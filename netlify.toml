@@ -6,4 +6,4 @@
   X-XSS-Protection = "1; mode=block"
   X-Content-Type-Options = "nosniff"
   Referrer-Policy = "no-referrer-when-downgrade"
-  Content-Security-Policy = "default-src 'none'; script-src 'self' *.cloudfront.net cdnjs.cloudflare.com; style-src 'self' *.cloudfront.net fonts.googleapis.com; img-src 'self' *.cloudfront.net; font-src 'self' fonts.gstatic.com; connect-src 'self' api.eventstack.nl; manifest-src 'self'; frame-ancestors 'none'; form-action 'self' hooks.zapier.com; upgrade-insecure-requests; disown-opener; referrer no-referrer-when-downgrade"
+  Content-Security-Policy = "default-src 'none'; script-src 'self' *.cloudfront.net cdnjs.cloudflare.com polyfill.io; style-src 'self' *.cloudfront.net fonts.googleapis.com; img-src 'self' *.cloudfront.net; font-src 'self' fonts.gstatic.com; connect-src 'self' api.eventstack.nl; manifest-src 'self'; frame-ancestors 'none'; form-action 'self' hooks.zapier.com; upgrade-insecure-requests; disown-opener; referrer no-referrer-when-downgrade"
