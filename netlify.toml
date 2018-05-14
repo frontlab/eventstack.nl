@@ -1,5 +1,12 @@
 [[headers]]
-  for = "/*.html"
+  for = "/"
+
+[headers.values]
+  X-Frame-Options = "SAMEORIGIN"
+  X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "*.html"
 
 [headers.values]
   X-Frame-Options = "SAMEORIGIN"
