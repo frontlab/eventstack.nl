@@ -34,7 +34,7 @@ gulp.task("js", function() {
 });
 
 gulp.task("assets", function() {
-	return gulp.src("./source/**/*.(ico|jpeg|png|svg|vcf)")
+	return gulp.src("./source/**/*.{ico,jpeg,png,svg,vcf}")
 	.pipe(gulp.dest("./target/"));
 });
 
