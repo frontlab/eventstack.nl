@@ -1,5 +1,2 @@
-*.workflow
-Caddyfile
-fronteersconf/dashboard
-fronteersconf/schedule
-fronteersconf/travel
+/node_modules
+/target

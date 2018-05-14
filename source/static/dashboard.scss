@@ -2,7 +2,6 @@
 *,
 *::before,
 *::after {
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: 0;
 	border: none;
@@ -48,25 +47,16 @@ html {
 /* Layout */
 body {
 	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	min-height: 100%;
-	background: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
 	background: linear-gradient(white, white);
 	padding-bottom: 2rem;
 }
 
 /* Logo banner */
 .banner {
-	-webkit-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 	box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 	width: 100%;
 	background-color: #d3b8f7;
@@ -82,11 +72,7 @@ body {
 
 /* Navigation */
 nav > ul {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
 	margin-top: 1rem;
 	font-weight: 600;
@@ -123,12 +109,7 @@ nav li[data-state="active"] > a {
 }
 
 header {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
 	margin: 3.5rem 0;
 	max-width: 35rem;
@@ -136,12 +117,7 @@ header {
 }
 
 section {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
 	position: relative;
 	margin-left: 1rem;
@@ -160,14 +136,8 @@ body > footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	width: 100%;
 	height: 2rem;
@@ -189,37 +159,25 @@ form > section:last-of-type {
 	border-bottom: 4.5rem solid #efecff;
 }
 form > footer {
-	-webkit-transition: -webkit-transform 350ms;
-	transition: -webkit-transform 350ms;
 	transition: transform 350ms;
-	transition: transform 350ms, -webkit-transform 350ms;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index: 2;
-	-webkit-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 	box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 	height: 6.5rem;
 	overflow: hidden;
 }
 form[data-visible="false"] > footer {
-	-webkit-transform: translateY(100%);
 	transform: translateY(100%);
 }
 form[data-visible="true"] > footer {
 	position: fixed;
 }
 form > footer > section {
-	-webkit-transition: -webkit-transform ease-out 200ms;
-	transition: -webkit-transform ease-out 200ms;
 	transition: transform ease-out 200ms;
-	transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	margin: 0;
 	width: 100%;
@@ -249,13 +207,10 @@ form + footer {
 }
 
 form[data-state="sending"] > footer > section {
-	-webkit-transform: translateY(-100%);
 	transform: translateY(-100%);
 }
 form[data-state="sending"] section:nth-of-type(2) > h3::before {
-	-webkit-animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
 	animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
-	-webkit-transform: rotate(-1turn);
 	transform: rotate(-1turn);
 	float: left;
 	margin: -0.5rem 0 0 -3.5rem;
@@ -267,7 +222,6 @@ form[data-state="sending"] section:nth-of-type(2) > h3::before {
 	content: "";
 }
 form[data-state="sent"] > footer > section {
-	-webkit-transform: translateY(-200%);
 	transform: translateY(-200%);
 }
 form > section label {
@@ -280,10 +234,7 @@ form > section label {
 input,
 textarea,
 select {
-	-webkit-transition: -webkit-box-shadow 200ms;
-	transition: -webkit-box-shadow 200ms;
 	transition: box-shadow 200ms;
-	transition: box-shadow 200ms, -webkit-box-shadow 200ms; border-color: 200ms;
 	display: block;
 	border: 1px solid #ccc;
 	border-radius: 0.175rem;
@@ -293,7 +244,6 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-	-webkit-box-shadow: 0 0 0 1px #826dff;
 	box-shadow: 0 0 0 1px #826dff;
 	border-color: #826dff;
 }
@@ -309,8 +259,6 @@ textarea {
 	line-height: 1.65;
 }
 select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	width: 100%;
 	height: 2.25rem;
@@ -318,10 +266,7 @@ select {
 
 /* Buttons */
 button {
-	-webkit-transition: border-radius 200ms 25ms, -webkit-box-shadow 200ms 25ms;
-	transition: border-radius 200ms 25ms, -webkit-box-shadow 200ms 25ms;
 	transition: box-shadow 200ms 25ms, border-radius 200ms 25ms;
-	transition: box-shadow 200ms 25ms, border-radius 200ms 25ms, -webkit-box-shadow 200ms 25ms;
 	height: 3rem;
 	min-width: 10rem;
 	border-radius: 0.25rem;
@@ -330,20 +275,15 @@ button {
 	font-size: 1.25rem;
 	font-weight: 600;
 	color: white;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 }
 
 button:focus {
-	-webkit-box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 	box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 	border-radius: 0.125rem;
 }
 @media not all and (pointer: coarse) {
 	button:hover {
-		-webkit-box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 		box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 		border-radius: 0.125rem;
 	}
@@ -442,7 +382,6 @@ td small {
 
 /* Links */
 .link {
-	-webkit-transition: border-color 200ms 25ms;
 	transition: border-color 200ms 25ms;
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
@@ -476,17 +415,9 @@ td small {
 
 /* Contact details */
 .contact {
-	-ms-flex-item-align: center;
 	align-self: center;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
 	align-items: flex-start;
 	margin-top: 2rem;
 }
@@ -494,7 +425,6 @@ td small {
 	margin-top: 0.5rem;
 }
 .contact .link {
-	-webkit-transition: color 200ms 25ms;
 	transition: color 200ms 25ms;
 	display: block;
 	border: none;
@@ -507,7 +437,6 @@ td small {
 }
 
 .contact .link > span {
-	-webkit-transition: border-color 200ms 25ms;
 	transition: border-color 200ms 25ms;
 	border-bottom: 2px solid transparent;
 }
@@ -534,25 +463,14 @@ td small {
 
 /* Stickers */
 .sticker {
-	-webkit-transition: border-color 250ms 25ms, color 250ms 25ms;
 	transition: border-color 250ms 25ms, color 250ms 25ms;
 	position: absolute;
 	top: -2rem;
 	right: 1rem;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.075);
 	box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.075);
 	width: 5rem;
 	height: 5rem;
@@ -610,16 +528,11 @@ td small {
 
 /* Dialogs */
 .dialog {
-	-webkit-transition: opacity 350ms ease-in-out, -webkit-transform 350ms;
-	transition: opacity 350ms ease-in-out, -webkit-transform 350ms;
 	transition: transform 350ms, opacity 350ms ease-in-out;
-	transition: transform 350ms, opacity 350ms ease-in-out, -webkit-transform 350ms;
-	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	-webkit-box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5), 0 0 1.5rem rgba(0, 0, 0, 0.25);
 	box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5), 0 0 1.5rem rgba(0, 0, 0, 0.25);
 	width: calc(100% - 2rem);
 	max-width: 30rem;
@@ -639,13 +552,11 @@ td small {
 	color: #826dff;
 }
 .dialog > label::before {
-	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	z-index: -1;
-	-webkit-box-sizing: content-box;
 	box-sizing: content-box;
 	border: solid transparent;
 	border-width: 50vh 50vw;
@@ -657,9 +568,7 @@ td small {
 }
 
 input:not(:checked) ~ .dialog {
-	-webkit-transition-duration: 100ms;
 	transition-duration: 100ms;
-	-webkit-transform: translateX(-50%) translateY(-50%) translateY(25%);
 	transform: translateX(-50%) translateY(-50%) translateY(25%);
 	opacity: 0;
 	pointer-events: none;
@@ -668,20 +577,10 @@ input:not(:checked) ~ .dialog {
 
 /* File (mostly image) uploads */
 .upload {
-	-ms-flex-item-align: center;
 	align-self: center;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	position: relative;
 	width: 20rem;
@@ -705,12 +604,10 @@ input:not(:checked) ~ .dialog {
 }
 
 .upload > img {
-	-webkit-animation: flip 500ms ease-in-out forwards;
 	animation: flip 500ms ease-in-out forwards;
 	opacity: 0;
 	width: 100%;
 	height: calc(100% - 2.5rem);
-	-o-object-fit: cover;
 	object-fit: cover;
 	padding: 0.5rem;
 }
@@ -745,9 +642,7 @@ input:not(:checked) ~ .dialog {
 	pointer-events: none;
 }
 .upload[data-state="sending"]::after {
-	-webkit-animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
 	animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
-	-webkit-transform: rotate(-1turn);
 	transform: rotate(-1turn);
 	position: absolute;
 	bottom: 0;
@@ -765,21 +660,14 @@ input:not(:checked) ~ .dialog {
 /* Responsive all the things! /o/ */
 @media (max-width: 560px) {
 	nav > ul {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: column;
 		flex-direction: column;
 		margin-top: 0.5rem;
 	}
 	nav > ul > li {
-		-webkit-box-ordinal-group: 1;
-		-ms-flex-order: 0;
 		order: 0;
 		margin: 0 1rem;
 	}
 	nav > ul > li[data-state="active"] {
-		-webkit-box-ordinal-group: 2;
-		-ms-flex-order: 1;
 		order: 1;
 		margin-top: 0.5rem;
 	}
@@ -842,16 +730,8 @@ input:not(:checked) ~ .dialog {
 }
 
 /* FLIP animation */
-@-webkit-keyframes flip {
-	to {
-		-webkit-transform: none;
-		transform: none;
-		opacity: 1;
-	}
-}
 @keyframes flip {
 	to {
-		-webkit-transform: none;
 		transform: none;
 		opacity: 1;
 	}
