@@ -7,6 +7,9 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
 		<link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 		<link rel="preconnect" href="https://api.eventstack.nl/" crossorigin>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 		<script>"ontouchstart" in window && document.documentElement.setAttribute("data-supports", "touch");</script>
 	</head>
 	<body>
@@ -47,7 +50,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="link" download="Fronteers Conference speaker liaison.vcf" href="data:text/vcard;charset=utf-8;base64,QkVHSU46VkNBUkQNClZFUlNJT046Mi4xDQpGTjpUaG9tYXMgdmFuIFp1aWpsZW4NCk46dmFuIFp1aWpsZW47VGhvbWFzOzs7DQpURUw6KzMxNjE4MzE4NDE3DQpFTUFJTDp0aG9tYXNAZXZlbnRzdGFjay5ubA0KT1JHOkZyb250ZWVycyBDb25mZXJlbmNlDQpUSVRMRTpTcGVha2VyIGxpYWlzb24NCkVORDpWQ0FSRA==">
+					<a class="link link--modest" href="vcard/thomas-van-zuijlen.vcf" download="Fronteers Conference Speaker Liaison.vcf">
 						<svg class="icon"><use xlink:href="#icon-contact"></svg>
 						<span>Add to your contacts</span>
 					</a>
@@ -55,11 +58,11 @@
 			</ul>
 		</header>
 		<section>
-			<h2>Conference and side&nbsp;events</h2>
-			<label for="dialog-toggle" class="sticker" tabindex="0" data-hide-when="narrow">
+			<label for="dialog-toggle" class="sticker" tabindex="0">
 				<svg><use xlink:href="#icon-calendar"></use></svg>
 				<span>Add to your calendar</span>
 			</label>
+			<h2>Conference and side&nbsp;events</h2>
 			<div>
 				<p><small>Retrieving&hellip;</small></p>
 				<script id="template" type="text/x-jsrender">
@@ -67,16 +70,20 @@
 						<caption><time>{{:~fecha.format(#data[0].fields.Starts, "dddd[<br>]D MMMM YYYY")}}</caption>
 						<colgroup>
 							<col>
-							<col width="40%">
-							<col width="60%">
+							<col width="25%">
+							<col width="75%">
 						</colgroup>
 						{{for #data}}
 							<tr>
 								<td><time>{{:~fecha.format(fields.Starts, "HH:mm")}}</time><u data-hide-when="narrow">—</u><br data-hide-when="wide"><time>{{:~fecha.format(fields.Ends, "HH:mm")}}</time></td>
 								<th>{{>fields.Name}}</th>
 								<td>
-									<span>{{>fields["Venue name"]}}</span>
-									<small>{{>fields.Description}}</small>
+									{{if fields["Venue URL"]}}
+										<a class="link" href="{{>fields["Venue URL"]}}" target="_blank" rel="noopener">{{>fields["Venue name"]}}</a>
+									{{else}}
+										<span>{{>fields["Venue name"]}}</span>
+									{{/if}}
+									{{if fields.Comments}}<small>{{>fields.Comments}}</small>{{/if}}
 								</td>
 							</tr>
 						{{/for}}

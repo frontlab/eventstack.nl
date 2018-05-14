@@ -444,6 +444,12 @@ td small {
 html:not([data-supports~="touch"]) .link:hover,
 .link:focus {
 	border-color: currentColor;
+	color: #826dff;
+}
+
+.link--modest {
+	font-size: 0.8125rem;
+	color: slategray;
 }
 
 /* Icons */
@@ -471,24 +477,20 @@ html:not([data-supports~="touch"]) .link:hover,
 	align-items: flex-start;
 	margin-top: 2rem;
 }
-.contact > li:not(:last-of-type) {
-	border-radius: 0.25rem;
-	background-color: #efecff;
-}
 .contact > li + li {
 	margin-top: 0.5rem;
 }
-.contact > li > .link {
+.contact .link {
 	-webkit-transition: color 200ms 25ms;
 	transition: color 200ms 25ms;
 	display: block;
 	border: none;
-	padding: 0.25rem 1rem 0.25rem 0.5rem;
 	line-height: 1.75;
 }
-html:not([data-supports~="touch"]) .contact > li > .link:hover,
-.contact > li > .link:focus {
-	color: #826dff;
+.contact .link:not(.link--modest) {
+	border-radius: 0.25rem;
+	background-color: #efecff;
+	padding: 0.25rem 1rem 0.25rem 0.5rem;
 }
 
 .contact .link > span {
@@ -501,16 +503,15 @@ html:not([data-supports~="touch"]) .contact .link:hover > span,
 	border-color: currentColor;
 }
 
-.contact > li:last-of-type > .link {
-	color: slategray;
-}
-.contact > li:last-of-type span {
-	vertical-align: 1px;
-	font-size: 0.8125rem;
+.contact--inverted .link:not(.link--modest) {
+	background-color: white;
 }
 
-section > .contact > li:not(:last-of-type) {
-	background-color: white;
+.contact .link--modest {
+	padding: 0.25rem 0.5rem;
+}
+.contact .link--modest > span {
+	vertical-align: 1px;
 }
 
 /* Stickers */
@@ -518,8 +519,8 @@ section > .contact > li:not(:last-of-type) {
 	-webkit-transition: border-color 250ms 25ms, color 250ms 25ms;
 	transition: border-color 250ms 25ms, color 250ms 25ms;
 	position: absolute;
-	top: -1.5rem;
-	right: 1.5rem;
+	top: -2rem;
+	right: 1rem;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -533,13 +534,14 @@ section > .contact > li:not(:last-of-type) {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.05);
-	box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.05);
+	-webkit-box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.075);
+	box-shadow: 0 -0.125rem 0.125rem rgba(0, 0, 0, 0.075);
 	width: 5rem;
 	height: 5rem;
 	border: 2px solid transparent;
 	border-radius: 50%;
 	background-color: white;
+	font-size: 0.8125rem;
 	color: slategray;
 	cursor: default;
 }
@@ -551,18 +553,19 @@ html:not([data-supports~="touch"]) .sticker:hover,
 .sticker > svg {
 	display: block;
 	margin-bottom: 0.25rem;
-	width: 1.25rem;
-	height: 1.25rem;
+	width: 1.25em;
+	height: 1.25em;
 }
 .sticker > span {
 	display: block;
 	width: 85%;
 	text-align: center;
 	line-height: 1.15;
-	font-size: 0.8125rem;
 }
+
 .sticker + h2 {
-	padding-right: 5rem;
+	margin-top: 0 !important;
+	padding-right: 3.5rem;
 }
 
 /* Selects */
