@@ -1,8 +1,5 @@
-[settings]
-  id = "ad3ebf61-6067-4ce9-8300-ab15d9c4fcc9"
-
 [[headers]]
-  for = "*.html"
+  for = "/*.html"
 
 [headers.values]
   X-Frame-Options = "SAMEORIGIN"
