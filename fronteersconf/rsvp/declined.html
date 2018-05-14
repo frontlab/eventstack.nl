@@ -8,7 +8,11 @@
 		<script>"ontouchstart" in window && document.documentElement.setAttribute("data-supports", "touch");</script>
 	</head>
 	<body>
-		<div class="banner"><img src="/static/bitmaps/header.png"></div>
+		<div class="banner">
+			<img
+				srcset="/static/bitmaps/header.large.png 1200w, /static/bitmaps/header.small.png 600w"
+				src="/static/bitmaps/header.large.png">
+		</div>
 		<header>
 			<h1>😥&nbsp;Oh well&hellip;</h1>
 			<p>We will be missing you in October. If you change your mind for any reason and would like to join us for the conference, please let us know by following the appropriate link in the invitation email.</p>
