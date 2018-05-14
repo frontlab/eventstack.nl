@@ -1,4 +1,5 @@
 eventstack.nl.test:8081 {
 	tls self_signed
+	root ./target
 	ext .html
 }

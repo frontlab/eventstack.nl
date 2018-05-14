@@ -159,10 +159,15 @@ document.body.hasAttribute("data-schedule") && (function() {
 		});
 
 	});
+
 })(document.querySelectorAll("[data-upload]"));
 
-// Observe stuff:
+// Observe target visibility:
 (function(targets) {
+
+	// Constants:
+	var ROOT_MARGIN = "0px 0px -250px 0px";
+
 	Array.from(targets).forEach(function(target) {
 		var observer = new IntersectionObserver(
 			function(events) {
@@ -170,8 +175,9 @@ document.body.hasAttribute("data-schedule") && (function() {
 					return event.isIntersecting;
 				}));
 			},
-			{rootMargin: "0px 0px -250px 0px"}
+			{rootMargin: ROOT_MARGIN}
 		);
 		observer.observe(target);
 	});
+
 })(document.querySelectorAll("[data-visible]"));
