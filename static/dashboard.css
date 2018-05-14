@@ -335,11 +335,18 @@ button {
 	-ms-user-select: none;
 	user-select: none;
 }
-html:not([data-supports~="touch"]) button:hover,
+
 button:focus {
 	-webkit-box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 	box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
 	border-radius: 0.125rem;
+}
+@media not all and (pointer: coarse) {
+	button:hover {
+		-webkit-box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
+		box-shadow: 0 0 0 2px white, 0 0 0 4px #826dff;
+		border-radius: 0.125rem;
+	}
 }
 
 /* Headings and paragraphs */
@@ -441,10 +448,16 @@ td small {
 	text-decoration: none;
 	color: #826dff;
 }
-html:not([data-supports~="touch"]) .link:hover,
+
 .link:focus {
 	border-color: currentColor;
 	color: #826dff;
+}
+@media not all and (pointer: coarse) {
+	.link:hover {
+		border-color: currentColor;
+		color: #826dff;
+	}
 }
 
 .link--modest {
@@ -498,9 +511,14 @@ html:not([data-supports~="touch"]) .link:hover,
 	transition: border-color 200ms 25ms;
 	border-bottom: 2px solid transparent;
 }
-html:not([data-supports~="touch"]) .contact .link:hover > span,
+
 .contact .link:focus > span {
 	border-color: currentColor;
+}
+@media not all and (pointer: coarse) {
+	.contact .link:hover > span {
+		border-color: currentColor;
+	}
 }
 
 .contact--inverted .link:not(.link--modest) {
@@ -545,11 +563,18 @@ html:not([data-supports~="touch"]) .contact .link:hover > span,
 	color: slategray;
 	cursor: default;
 }
-html:not([data-supports~="touch"]) .sticker:hover,
+
 .sticker:focus {
 	border-color: currentColor;
 	color: #826dff;
 }
+@media not all and (pointer: coarse) {
+	.sticker:hover {
+		border-color: currentColor;
+		color: #826dff;
+	}
+}
+
 .sticker > svg {
 	display: block;
 	margin-bottom: 0.25rem;

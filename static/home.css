@@ -55,7 +55,6 @@ u + u {
 .branding a,
 .branding a:visited {
 	border-bottom: 1px solid currentColor;
-	padding-bottom: 1px;
 	text-decoration: none;
 	color: #fff;
 }
@@ -146,7 +145,6 @@ footer {
 footer a,
 footer a:visited {
 	border-bottom: 1px solid currentColor;
-	padding-bottom: 2px;
 	text-decoration: none;
 	color: #333;
 }
