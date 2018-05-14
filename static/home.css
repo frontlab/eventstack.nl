@@ -1,0 +1,164 @@
+html,
+body {
+	background: #f7f7f7;
+	color: #333;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: 100%;
+}
+h2,
+h3 {
+	margin: 0;
+}
+h1 {
+	font-size: 1.5em;
+	font-weight: 400;
+	line-height: 1.5;
+	margin: 0;
+}
+h1 em {
+	color: #000;
+}
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	list-style: none;
+}
+em {
+	font-style: normal;
+	font-weight: 600;
+}
+u {
+	text-decoration: none;
+}
+u + u {
+	margin-left: 0.25em;
+}
+
+.blurb {
+	margin: 0 auto;
+	max-width: 440px;
+}
+
+.branding {
+	color: #fff;
+	line-height: 1.5;
+	padding: 2em 0;
+	text-align: center;
+	width: 100%;
+}
+.branding a,
+.branding a:visited {
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 1px;
+	text-decoration: none;
+	color: #fff;
+}
+.branding img {
+	max-width: 300px;
+	display: block;
+	margin: 0 auto 1em auto;
+}
+.event-serverless-amsterdam {
+	background: #369;
+}
+.event-git-to-great {
+	background: #0cbf31;
+}
+.event-fronteersconf {
+	background: #f2bb00;
+}
+.cta {
+	background: green;
+	border-radius: 4px;
+	border: 0;
+	color: #ffffff;
+	display: inline-block;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1.3em;
+	font-weight: 600;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+.cta:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+.cta:hover {
+	background: darkgreen;
+	cursor: pointer;
+}
+
+header,
+footer {
+	text-align: center;
+}
+header {
+	padding: 6em 0 5em 0;
+}
+header img {
+	max-width: 80%;
+}
+header h1 {
+	line-height: 1.3em;
+	margin: 2em auto 1em auto;
+	max-width: 440px;
+	padding: 0 1em;
+}
+header h1 span {
+	white-space: nowrap;
+}
+header h2 {
+	font-weight: normal;
+	margin: auto auto 1.3em auto;
+}
+
+@media screen and (max-width: 40em) {
+	header {
+		padding: 3em 0;
+	}
+	header h1 {
+		font-size: 1.1em;
+		line-height: 1.2;
+		margin: 1.5em auto .8em auto;
+	}
+	header h2 {
+		font-size: 1.1em;
+	}
+	header img,
+	.branding img {
+		max-width: 60%;
+	}
+	.cta {
+		font-size: 1.1em;
+	}
+}
+
+footer {
+	padding: 3em 1em;
+	line-height: 1.5;
+}
+footer a,
+footer a:visited {
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 2px;
+	text-decoration: none;
+	color: #333;
+}
+footer a:hover {
+	color: #000;
+}
+footer p + p {
+	margin-top: 1.5em;
+}
+
+.tiny-logo {
+	display: block;
+	margin: 0 auto .75em auto;
+	width: 150px;
+}
