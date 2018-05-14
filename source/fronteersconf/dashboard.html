@@ -162,33 +162,10 @@
 				</section>
 			</footer>
 		</form>
-		<footer>
-			<a href="/">
-				<span data-hide-when="narrow">Fronteers Conference</span>
-				<span data-hide-when="wide">This</span>
-				<span>is an <img src="/static/logo/eventstack.svg"> production</span>
-			</a>
-		</footer>
+		<!--=include ../include/dashboard-footer.html -->
 		<!--=include ../include/dashboard-icons.html -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/fecha/2.3.3/fecha.min.js"></script>
 		<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
 		<script src="/static/dashboard.min.js"></script>
-		<script>
-		// Toggle form footer:
-		(function(target) {
-			if(!localStorage.speakerId) {
-				return;
-			}
-			var observer = new IntersectionObserver(
-				function(events) {
-					target.setAttribute("data-visible", events.some(function(event) {
-						return event.isIntersecting;
-					}));
-				},
-				{rootMargin: "0px 0px -250px 0px"}
-			);
-			observer.observe(target);
-		})(document.forms[0]);
-		</script>
 	</body>
 </html>

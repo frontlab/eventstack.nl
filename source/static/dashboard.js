@@ -160,3 +160,18 @@ document.body.hasAttribute("data-schedule") && (function() {
 
 	});
 })(document.querySelectorAll("[data-upload]"));
+
+// Observe stuff:
+(function(targets) {
+	Array.from(targets).forEach(function(target) {
+		var observer = new IntersectionObserver(
+			function(events) {
+				target.setAttribute("data-visible", events.some(function(event) {
+					return event.isIntersecting;
+				}));
+			},
+			{rootMargin: "0px 0px -250px 0px"}
+		);
+		observer.observe(target);
+	});
+})(document.querySelectorAll("[data-visible]"));
