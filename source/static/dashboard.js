@@ -92,7 +92,7 @@ document.body.hasAttribute("data-schedule") && (function() {
 	var DATA_URL = "https://api.eventstack.nl/fronteersconf/schedule";
 
 	// Elements:
-	var template = document.querySelector("[data-schedule-template]");
+	var template = document.querySelector("[data-schedule-template]").innerText;
 
 	// Fetch and render the schedule:
 	fetch(DATA_URL)
