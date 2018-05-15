@@ -1,3 +1,15 @@
+[[redirects]]
+	from = "https://eventstack-nl.netlify.com/*"
+	to = "https://eventstack.nl/:splat"
+	status = 301
+	force = true
+
+[[redirects]]
+	from = "https://www.eventstack.nl/*"
+	to = "https://eventstack.nl/:splat"
+	status = 301
+	force = true
+
 [[headers]]
 	for = "/*"
 
