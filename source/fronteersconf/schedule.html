@@ -58,30 +58,7 @@
 			<h2>Conference and side&nbsp;events</h2>
 			<div>
 				<p><small>Retrieving&hellip;</small></p>
-				<script type="text/x-jsrender" data-schedule-template>
-					<table>
-						<caption><time>{{:~fecha.format(#data[0].fields.Starts, "dddd[<br>]D MMMM YYYY")}}</caption>
-						<colgroup>
-							<col>
-							<col width="25%">
-							<col width="75%">
-						</colgroup>
-						{{for #data}}
-							<tr>
-								<td><time>{{:~fecha.format(fields.Starts, "HH:mm")}}</time><u data-hide-when="narrow">—</u><br data-hide-when="wide"><time>{{:~fecha.format(fields.Ends, "HH:mm")}}</time></td>
-								<th>{{>fields.Name}}</th>
-								<td>
-									{{if fields["Venue URL"]}}
-										<a class="link" href="{{>fields["Venue URL"]}}" target="_blank" rel="noopener">{{>fields["Venue name"]}}</a>
-									{{else}}
-										<span>{{>fields["Venue name"]}}</span>
-									{{/if}}
-									{{if fields.Comments}}<small>{{>fields.Comments}}</small>{{/if}}
-								</td>
-							</tr>
-						{{/for}}
-					</table>
-				</script>
+				<!--=include ../include/dashboard-schedule-template.html -->
 			</div>
 		</section>
 		<div class="dialog">
