@@ -12,7 +12,7 @@ if(location.hash) {
 				Array.from(toggles).forEach(function(toggle) { toggle.checked = false; });
 				break;
 		}
-	})
+	});
 })(document.querySelectorAll("[data-dialog-toggle]"));
 
 
