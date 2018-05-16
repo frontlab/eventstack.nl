@@ -24,9 +24,9 @@
 		default-src 'none'; \
 		script-src 'self' 'unsafe-eval' *.cloudfront.net cdnjs.cloudflare.com polyfill.io apis.google.com rawgit.com; \
 		style-src 'self' *.cloudfront.net fonts.googleapis.com; \
-		img-src 'self' *.cloudfront.net dl.airtable.com blob:; \
+		img-src 'self' *.cloudfront.net dl.airtable.com *.googleusercontent.comblob:; \
 		font-src 'self' fonts.gstatic.com; \
-		connect-src 'self' api.eventstack.nl hooks.zapier.com; \
+		connect-src 'self' api.eventstack.nl hooks.zapier.com api.airtable.com; \
 		manifest-src 'self'; \
 		frame-src accounts.google.com content.googleapis.com; \
 		frame-ancestors 'none'; \
