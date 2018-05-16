@@ -20,6 +20,12 @@
 	for = "/*"
 
 [headers.values]
+	Server = "Airmergle"
+
+[[headers]]
+	for = "/*"
+
+[headers.values]
 	Content-Security-Policy = """
 		default-src 'none'; \
 		script-src 'self' 'unsafe-eval' *.cloudfront.net cdnjs.cloudflare.com polyfill.io; \
