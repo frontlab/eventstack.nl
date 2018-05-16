@@ -22,6 +22,7 @@ html {
 	line-height: 1.25;
 	font-family: "Nunito", sans-serif;
 	font-size: 18px;
+	font-display: optional;
 }
 
 body {
@@ -133,6 +134,7 @@ footer {
 .hero {
 	height: 75vh;
 	overflow: hidden;
+	background-color: #666;
 
 	& > img {
 		width: 100%;
@@ -146,7 +148,7 @@ footer {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	min-width: 17.5rem;
 	padding: 2.5rem 1rem;
