@@ -41,7 +41,7 @@ header {
 	& > img {
 		margin-bottom: 2rem;
 		width: 100%;
-		max-width: 25rem;
+		max-width: 20rem;
 	}
 	& > h1 {
 		margin-bottom: 2rem;
@@ -113,6 +113,21 @@ footer {
 		& > u + u {
 			padding-left: 0.35em;
 		}
+	}
+}
+
+.hero {
+	height: 75vh;
+	overflow: hidden;
+
+	& > img {
+		width: 100%;
+		height: 100%;
+		object-position: center;
+		object-fit: cover;
+	}
+	&--tall {
+		height: 100vh;
 	}
 }
 
