@@ -26,7 +26,7 @@
 		style-src 'self' *.cloudfront.net fonts.googleapis.com; \
 		img-src 'self' *.cloudfront.net dl.airtable.com; \
 		font-src 'self' fonts.gstatic.com; \
-		connect-src 'self' api.eventstack.nl; \
+		connect-src 'self' api.eventstack.nl hooks.zapier.com; \
 		manifest-src 'self'; \
 		frame-ancestors 'none'; \
 		form-action 'self' hooks.zapier.com; \
