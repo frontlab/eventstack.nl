@@ -54,7 +54,7 @@ document.body.hasAttribute("data-prefill") && (function(form) {
 		if("error" in data) {
 			throw Error("Whale oil beef hooked, thar be an error: " + data.error);
 		}
-		if(form) {
+		if(form && form.elements.id) {
 			form.elements.id.value = data.id;
 		}
 		Object.keys(data.fields).concat(BOOLEAN_FIELDS).forEach(function(key) {
