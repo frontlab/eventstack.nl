@@ -28,6 +28,7 @@
 		font-src 'self' fonts.gstatic.com; \
 		connect-src 'self' api.eventstack.nl hooks.zapier.com; \
 		manifest-src 'self'; \
+		frame-src accounts.google.com content.googleapis.com; \
 		frame-ancestors 'none'; \
 		form-action 'self' hooks.zapier.com; \
 		upgrade-insecure-requests
