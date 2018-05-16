@@ -24,7 +24,7 @@
 		default-src 'none'; \
 		script-src 'self' 'unsafe-eval' *.cloudfront.net cdnjs.cloudflare.com polyfill.io; \
 		style-src 'self' *.cloudfront.net fonts.googleapis.com; \
-		img-src 'self' *.cloudfront.net; \
+		img-src 'self' *.cloudfront.net dl.airtable.com; \
 		font-src 'self' fonts.gstatic.com; \
 		connect-src 'self' api.eventstack.nl; \
 		manifest-src 'self'; \
