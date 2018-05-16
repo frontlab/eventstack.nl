@@ -1,0 +1,1357 @@
+<html>
+	<head>
+		<title>Airmergle</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,700">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+		<style>
+		/* Reset */
+		*,
+		*::before,
+		*::after {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font: inherit;
+		}
+		li {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		::-moz-focus-inner {
+			border: none;
+		}
+
+		/* Utilities */
+		[hidden] {
+			display: none;
+		}
+		link[tabindex] {
+			opacity: 0;
+			display: block;
+			height: 0;
+			pointer-events: none;
+		}
+
+		::-webkit-input-placeholder {
+			line-height: 1.275;
+			color: #ccc;
+		}
+		:-ms-input-placeholder {
+			line-height: 1.275;
+			color: #ccc;
+		}
+		::placeholder {
+			line-height: 1.275;
+			color: #ccc;
+		}
+
+		@-webkit-keyframes flip {
+			to {
+				-webkit-transform: none;
+				transform: none;
+				opacity: 1;
+			}
+		}
+		@keyframes flip {
+			to {
+				-webkit-transform: none;
+				transform: none;
+				opacity: 1;
+			}
+		}
+
+		/* Helpers */
+		._lazy:focus {
+			outline: none;
+		}
+		._nerdy {
+			line-height: 1.5;
+			font-family: "Source Code Pro", monospace;
+			font-size: 0.85rem;
+			white-space: pre;
+			-moz-tab-size: 2;
+			-o-tab-size: 2;
+			tab-size: 2;
+			color: #666;
+		}
+		._hungry {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+		}
+
+		/* Layout */
+		html {
+			overflow: hidden;
+			background-color: black;
+			line-height: 1;
+			font-family: "Nunito", sans-serif;
+			font-display: optional;
+		}
+		body {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#f7f7f7));
+			background-image: linear-gradient(#f7f7f7, #f7f7f7); /* Trick to show <html> background in overscrolled areas in Safari. */
+			padding: 0 1rem 1rem 1rem;
+		}
+		section {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			min-width: 20rem;
+			height: calc(100vh - 8.5rem);
+			padding: 1rem;
+		}
+		section:nth-of-type(1) {
+			-webkit-box-flex: 2;
+			-ms-flex: 2;
+			flex: 2;
+		}
+		section:nth-of-type(2) {
+			-webkit-box-flex: 5;
+			-ms-flex: 5;
+			flex: 5;
+			min-height: 30rem;
+		}
+
+		/* Header */
+		header {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			position: relative;
+			margin: 0 -1rem 2rem -1rem;
+			width: calc(100% + 2rem);
+			height: 2rem;
+			background-color: black;
+			padding: 0 2rem;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		header::after {
+			width: 5rem;
+			content: "";
+		}
+		header > svg {
+			height: 1.5rem;
+		}
+		header > h1 {
+			font-size: 1.25rem;
+			color: mediumseagreen;
+		}
+		header > h1 > sup {
+			vertical-align: top;
+			font-family: sans-serif;
+			font-size: 0.875rem;
+		}
+		header > div {
+			position: absolute;
+			top: 0.5rem;
+			right: 2rem;
+		}
+		header > div > * {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		/* Footer */
+		footer {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			padding: 0 1rem 1rem 1rem;
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+		}
+		footer > div {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			margin: 0 -0.5rem;
+		}
+		footer > div > * {
+			margin: 0 0.5rem;
+		}
+
+		/* Google sign-in (user) */
+		figure {
+			-webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1875);
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1875);
+			width: 3rem;
+			height: 3rem;
+			overflow: hidden;
+			border: 0.25rem solid white;
+			border-radius: 50%;
+			background-color: white;
+		}
+		figure > * {
+			-webkit-transition: opacity 500ms ease-in-out;
+			transition: opacity 500ms ease-in-out;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		figure > svg {
+			padding: 0.125rem;
+		}
+		figure + button {
+			-webkit-transition: opacity 250ms 25ms ease-in-out;
+			transition: opacity 250ms 25ms ease-in-out;
+			margin: 0.25rem;
+			border-radius: 50%;
+		}
+		figure[data-signed-in]::before {
+			-webkit-animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
+			animation: flip 1s cubic-bezier(0.75, 0.125, 0.125, 0.75) infinite;
+			-webkit-transform: rotate(-1turn);
+			transform: rotate(-1turn);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -1rem 0 0 -1rem;
+			width: 2rem;
+			height: 2rem;
+			border: 0.25rem solid #eee;
+			border-top-color: cornflowerblue;
+			border-radius: 50%;
+			content: "";
+		}
+		figure:not([data-signed-in=""])::before,
+		figure:not([data-signed-in="true"]) + button {
+			display: none;
+		}
+		figure:not([data-signed-in="false"]) > svg,
+		figure:not([data-signed-in="true"]) > img,
+		figure + button:not(:hover) {
+			opacity: 0;
+		}
+
+		/* Form field */
+		.field {
+			position: relative;
+		}
+		.field:not(._hungry) {
+			max-width: 35rem;
+		}
+		.field + * {
+			margin-top: 1.25rem;
+		}
+
+		.field__label {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			-webkit-box-align: end;
+			-ms-flex-align: end;
+			align-items: flex-end;
+			margin-bottom: 0.35rem;
+			font-weight: bold;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.field__label > a {
+			-webkit-transition: border-color 250ms 25ms, color 250ms 25ms;
+			transition: border-color 250ms 25ms, color 250ms 25ms;
+			margin-bottom: -1px;
+			border-bottom: 1px solid transparent;
+			font-size: 0.875rem;
+			font-weight: normal;
+			color: #999;
+		}
+		.field__label > a > svg {
+			margin-bottom: -1px;
+			width: 1rem;
+			height: 1rem;
+		}
+		.field__label > a:not(._lazy):hover,
+		.field__label > a:not(._lazy):focus {
+			outline: none;
+			border-color: currentColor;
+			color: cornflowerblue;
+		}
+		.field__label > input[type="checkbox"] {
+			margin-left: 0.5rem;
+		}
+		.field__label > label {
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			margin: 0;
+			font-size: 0.875rem;
+			font-weight: normal;
+			color: #999;
+		}
+
+		/* List */
+		.list__header {
+			position: relative;
+			border: 1px solid #ccc;
+			border-bottom: none;
+			border-radius: 2px 2px 0 0;
+			background-color: #eee;
+			padding: 0.25rem 0 0.5rem 0;
+			font-size: 0.875rem;
+		}
+		.list__header::before {
+			position: absolute;
+			bottom: 0;
+			left: 1.085rem;
+			width: 1.525rem;
+			height: calc(100% - 0.5rem);
+			border: solid #ccc;
+			border-width: 0 1px;
+			content: "";
+		}
+		.list__header > label {
+			position: relative;
+			display: block;
+			background-color: #eee;
+			padding: 0.25rem 0;
+		}
+		.list__header > label:nth-of-type(1) { margin-left: 0.875rem; }
+		.list__header > label:nth-of-type(2) { margin-left: 2.285rem; }
+
+		.list {
+			-webkit-transition: border-color 250ms, -webkit-box-shadow 250ms;
+			transition: border-color 250ms, -webkit-box-shadow 250ms;
+			transition: box-shadow 250ms, border-color 250ms;
+			transition: box-shadow 250ms, border-color 250ms, -webkit-box-shadow 250ms;
+			position: relative;
+			overflow: scroll;
+			border: 1px solid #ccc;
+			border-radius: 0 0 2px 2px;
+			background-color: white;
+		}
+		.list:empty::before {
+			-webkit-animation: flip 1s infinite cubic-bezier(0.75, 0.125, 0.125, 0.75);
+			animation: flip 1s infinite cubic-bezier(0.75, 0.125, 0.125, 0.75);
+			-webkit-transform: rotate(-1turn);
+			transform: rotate(-1turn);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -1.75rem 0 0 -1.75rem;
+			width: 3.5rem;
+			height: 3.5rem;
+			border: 0.35rem solid #eee;
+			border-top-color: cornflowerblue;
+			border-radius: 50%;
+			content: "";
+		}
+		.list:focus-within {
+			-webkit-box-shadow: 0 0 0 1px cornflowerblue;
+			box-shadow: 0 0 0 1px cornflowerblue;
+			border-color: cornflowerblue;
+			border-radius: 0.175rem;
+		}
+		.list > li {
+			-ms-flex-negative: 0;
+			flex-shrink: 0;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			padding: 0.5rem;
+			line-height: 1.15;
+		}
+		.list > li:nth-of-type(even) {
+			background-color: #f7f7f7;
+		}
+		.list > li > input[type="radio"] {
+			width: 1.5rem;
+		}
+
+		.list > li > span {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			margin-left: 0.5rem;
+		}
+		/*
+		.list > li > span > i {
+			border-radius: 2px;
+			background: currentColor -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.85)), to(rgba(255, 255, 255, 0.85)));
+			background: currentColor linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+			color: cornflowerblue;
+		}
+		*/
+		.list[data-tags="true"] > li > span:nth-of-type(1) { display: none; }
+		.list:not([data-tags="true"]) > li > span:nth-of-type(2) { display: none; }
+
+		.list > li > svg {
+			-webkit-transition: color 100ms 25ms;
+			transition: color 100ms 25ms;
+			margin: -0.125rem 0;
+			width: 1.5rem;
+			height: 1.5rem;
+			padding: 0.125rem;
+			color: #ddd;
+		}
+		.list > li:hover > svg {
+			color: cornflowerblue;
+		}
+		.list > li > svg:active {
+			-webkit-transition: none;
+			transition: none;
+			color: #666;
+		}
+
+		/* Input */
+
+		input:not([type="checkbox"]):not([type="radio"]),
+		textarea,
+		select {
+			-webkit-transition: border-color 250ms, background-color 250ms, -webkit-box-shadow 250ms;
+			transition: border-color 250ms, background-color 250ms, -webkit-box-shadow 250ms;
+			transition: box-shadow 250ms, border-color 250ms, background-color 250ms;
+			transition: box-shadow 250ms, border-color 250ms, background-color 250ms, -webkit-box-shadow 250ms;
+			display: block;
+			width: 100%;
+			border: 1px solid #ccc;
+			border-radius: 2px;
+			background: white url("");
+		}
+		input:not([type="checkbox"]):not([type="radio"]),
+		select {
+			height: 2rem;
+			padding: 0 0.5rem;
+		}
+		textarea {
+			resize: none;
+			padding: 0.5rem;
+		}
+		select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			height: 2rem;
+		}
+		select + svg {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 2rem;
+			height: 2rem;
+			padding: 0.5rem;
+			color: #ccc;
+			pointer-events: none;
+		}
+
+		input:not([type="checkbox"]):not([type="radio"]):disabled,
+		textarea:disabled,
+		select:disabled {
+			border-color: transparent;
+			background-color: #eee;
+			color: #bbb;
+		}
+		input:not([type="checkbox"]):not([type="radio"]):not(._lazy):focus,
+		textarea:not(._lazy):focus,
+		select:not(._lazy):focus {
+			outline: none;
+			-webkit-box-shadow: 0 0 0 1px cornflowerblue;
+			box-shadow: 0 0 0 1px cornflowerblue;
+			border-color: cornflowerblue;
+			border-radius: 0.175rem;
+		}
+
+		/* Button */
+		button {
+			-webkit-transition: border-color 100ms, background-color 250ms, -webkit-box-shadow 100ms;
+			transition: border-color 100ms, background-color 250ms, -webkit-box-shadow 100ms;
+			transition: box-shadow 100ms, border-color 100ms, background-color 250ms;
+			transition: box-shadow 100ms, border-color 100ms, background-color 250ms, -webkit-box-shadow 100ms;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			min-width: 7.5rem;
+			height: 2.5rem;
+			border: solid rgba(0, 0, 0, 0.125);
+			border-width: 0 0 2px 0;
+			border-radius: 0.1875rem;
+			background-color: #ddd;
+			padding: 0.5rem 1.5rem;
+			font-weight: bold;
+			color: #666;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		button > svg {
+			margin: 0 0.5rem;
+			height: 100%;
+			width: 1.5rem;
+			height: 1rem;
+		}
+		button > svg:first-child {
+			margin-left: -0.75rem;
+		}
+		button > svg:last-child {
+			margin-right: -0.75rem;
+		}
+		button:disabled {
+			border-color: transparent;
+			color: #bbb;
+		}
+		button:disabled > svg {
+			opacity: 0.5;
+		}
+		button:not(._lazy):focus {
+			outline: none;
+			-webkit-box-shadow: 0 0 0 2px #f7f7f7, 0 0 0 4px cornflowerblue;
+			box-shadow: 0 0 0 2px #f7f7f7, 0 0 0 4px cornflowerblue;
+			border-color: rgba(0, 0, 0, 0.25);
+			border-radius: 0.125rem;
+		}
+		button:active {
+			border-color: transparent;
+		}
+
+		/* Button modifiers */
+		.button--fancy:not(:disabled) {
+			background-color: cornflowerblue;
+			font-weight: 600;
+			letter-spacing: 0.0125em;
+			color: #f7f7f7;
+		}
+		.button--cosy {
+			min-width: 2.5rem;
+			padding: 0.5rem;
+		}
+		.button--cosy > svg {
+			margin: 0;
+		}
+		.button--cosy + button {
+			margin-left: 0;
+		}
+
+		/* Button sign-in state */
+		button[data-signed-in] {
+			position: relative;
+		}
+		button[data-signed-in]::after {
+			-webkit-transition: background-color 500ms;
+			transition: background-color 500ms;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			margin-bottom: -0.5rem;
+			width: 100%;
+			height: 2px;
+			background-color: transparent;
+			content: "";
+		}
+		button[data-signed-in]:disabled::after,
+		button[data-signed-in]:focus::after {
+			-webkit-transition-duration: 100ms;
+			transition-duration: 100ms;
+			background-color: transparent;
+		}
+		button[data-signed-in="true"]::after { background-color: mediumseagreen; }
+		button[data-signed-in="false"]::after { background-color: tomato; }
+
+		/* Dialog */
+		.dialog {
+			will-change: transform;
+			-webkit-transition: opacity 350ms ease-in-out, -webkit-transform 350ms;
+			transition: opacity 350ms ease-in-out, -webkit-transform 350ms;
+			transition: transform 350ms, opacity 350ms ease-in-out;
+			transition: transform 350ms, opacity 350ms ease-in-out, -webkit-transform 350ms;
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			z-index: 2;
+			-webkit-box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+			box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+			border-radius: 2px;
+			width: calc(100% - 6.5rem);
+			max-width: 65rem;
+			height: calc(100% - 6.5rem);
+			max-height: 50rem;
+			background-color: #f7f7f7;
+			padding: 1rem;
+		}
+		.dialog::before {
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: -1;
+			-webkit-box-sizing: content-box;
+			box-sizing: content-box;
+			border: solid transparent;
+			border-width: 50vh 50vw;
+			content: "";
+		}
+		.dialog > section {
+			height: calc(100% - 3.5rem);
+		}
+		.dialog[hidden] {
+			-webkit-transition-duration: 100ms;
+			transition-duration: 100ms;
+			-webkit-transform: translateX(-50%) translateY(-50%) translateY(5%);
+			transform: translateX(-50%) translateY(-50%) translateY(5%);
+			opacity: 0;
+			display: block;
+			pointer-events: none;
+		}
+
+		/* Editor */
+		.editor {
+			-webkit-transition: border-color 250ms, -webkit-box-shadow 250ms;
+			transition: border-color 250ms, -webkit-box-shadow 250ms;
+			transition: box-shadow 250ms, border-color 250ms;
+			transition: box-shadow 250ms, border-color 250ms, -webkit-box-shadow 250ms;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			border: 1px solid #ccc;
+			border-radius: 2px;
+			background-color: white;
+		}
+		.editor:focus-within {
+			-webkit-box-shadow: 0 0 0 1px cornflowerblue;
+			box-shadow: 0 0 0 1px cornflowerblue;
+			border-color: cornflowerblue;
+			border-radius: 0.175rem;
+		}
+		.editor[data-wrap-lines="true"] > * {
+			width: 100% !important;
+			white-space: pre-wrap;
+		}
+
+		.editor__target {
+			position: absolute;
+			top: 0;
+			left: 0;
+			min-width: 100%;
+			min-height: 100%;
+			padding: 0.5rem;
+		}
+
+		.editor__source {
+			position: relative;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			min-width: 100%;
+			min-height: 100%;
+			overflow: hidden;
+			border: none !important;
+			background-color: transparent !important;
+			color: transparent;
+			caret-color: black;
+		}
+		.editor__source::-moz-selection {
+			background-color: highlight;
+			color: #666;
+		}
+		.editor__source::selection {
+			background-color: highlight;
+			color: #666;
+		}
+
+		.editor__token {
+			-webkit-box-decoration-break: clone;
+			box-decoration-break: clone;
+			border-radius: 2px;
+			background: currentColor -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.85)), to(rgba(255, 255, 255, 0.85)));
+			background: currentColor linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+		}
+		.editor__token--noisy { color: seagreen; }
+		.editor__token--bossy { color: cornflowerblue; }
+
+		.editor--skinny {
+			height: 2rem;
+		}
+		.editor--skinny > .editor__target,
+		.editor--skinny > .editor__source {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			padding: 0 0.5rem;
+			line-height: 1;
+		}
+		</style>
+	</head>
+	<body spellcheck="false">
+		<header>
+			<svg viewBox="0 0 444 123">
+				<path fill="#999" fill-rule="evenodd" d="M323.92 86.8c-59.5-1.83-151.15 3.13-247.4 23.9-14.74 3.2-18.45 13-12.16 11.68 73.64-15.5 177.52-24.9 259.7-22.4 61.9 1.9 84.07 14.65 86.85 15.9 2.8 1.26 8.2-3.03 8.4-9.86.4-11.66-40-17.53-95.3-19.23m116.8-13c-.3.2-1.4.9-3.6.9-10.3 0-5.9-18.6-5.9-18.6s9.8-4.6 10.6-17.7c.4-6.7-2.7-12.1-9-12.5-6.3-.4-11.9 4.2-14.1 6.4 3.6-7.8 7.7-14.9 10-19 3-5.5-6.7-13.5-9.3-11.5-4.7 3.6-12.7 21.2-17.9 40C396.5 49 388 58 377.5 57.3c-13.3-.8-3.8-24.8 3.7-24.3 2.4.1 1.17 4.2-.8 7.7-1.7 3.12 11.78 6.8 15.2-6.3 2.2-7.4-6.2-12.1-11.7-12.4-13.8-.9-26.37 12.7-27.67 26.6-.14 1.53-.2 2.95-.2 4.3-2.6 2.1-5.4 3.36-8.1 3.2-2.32-.14-4.6-2.45-4.4-5.93.4-7 2.67-12.8 6.97-19.23 3.94-5.9-9.46-17.7-13.3-7.47l-.15.4c-1.5-2.42-4.8-5.6-11.3-5.1-8.5.63-18.25 12.2-20.96 24.7-4.1 6.3-9.5 11.7-14.9 11.54-2.3 0-4.6-2.3-4.5-5.8.2-6.3 2.2-12.8 4.8-18.7 3.4.3 6.5 1 9 2.3 7.2 3.9 5.4-10.3 2.5-11.4-2.1-.8-4.2-1.3-6.3-1.7 1.5-2.8 2.9-5.3 4-7.4 2.8-5.5-7.1-13.3-9.7-11.2-3.2 2.5-7 9.7-10.4 18.7-6.9 1.1-11.6 3.1-11.6 3.1-4-.1-5.9 8.6-1.6 8.8 1.8.1 5.4-.4 9.5-.8-2.3 8.2-3.9 16.9-4.2 24.4-.3 8.2 4.6 13.8 11.1 14 9.2.3 16.8-4.4 22.6-10.6 2.6 9.3 8.9 10.4 13.2 10.1 5.1-.4 9.3-3.5 12.3-6.8 2.3 5 7.6 8.3 11 8.5 6.6.4 12.3-1.9 17.2-5.4 3 4.6 8.2 6.9 15.4 7.4 9.1.5 16.8-4.1 22.8-10.2-.3 2.38-.6 4.67-.7 6.87-.08.3-.08.6-.07.8 0 2.1.44 3.1 1.25 3.5 3.4 4.1 12.4 3.4 12.8-.4.34-3.6 1.1-8.54 2.1-13.33l5.5-.85c-1.1 7.1.3 28.9 14.8 28.9 13.33 0 10.7-15.54 7.84-13.86zM321 51.8c-1.94-.15-2.9-1.48-2.47-4.7 1.04-7.77 6.58-15.37 14.1-14.36 0 0-1.43 5.96-2.35 8.4-1.36 3.63-4.86 10.9-9.3 10.63zm94.62-3.65l.1-.32c1.8-4.87 6.2-8.08 9.94-7.86 1.14.06 1.73.85 1.7 1.62-.3 5-6.7 5.9-11.76 6.5zM77.1 94.1c8.06-.8 15.26-14 19.2-26.94 1.83.95 3.97 1.74 6.45 2.23 1.75 11.5 8.7 16.4 20.3 15.8 9.88-.5 17.87-9.1 23.57-18v.4c-.02 15.3 11.65 16 13.4 10.7 2.27-6.8 9.07-20.9 14.4-27.8-.2 2.6-.32 5.3-.32 8.2 0 11 7.44 17.4 13.24 17.4 7.35 0 13.34-3.3 18.16-7.9 2.22 3.6 5.85 5.6 9.97 5.4 8.7-.5 16.04-5.2 21.93-11.3 2.9 3.8 7.9 8.2 15.33 7.8 9.1-.5 15.5-6.9 15.04-15.4C267.23 45 256 32.6 256 32.6s2.65-5.6 2.4-10.1c-.4-7.74-15.8-5.9-14.83-3.05.9 2.7 1.12 5.9 1.1 8.7-.07.2-.1.47-.1.78.15 5.97-11.78 29.58-23.1 30.2-2.3.1-4.8-1.93-4.98-5.4-.4-6.07 1.1-12.4 3.2-18.32 3.7.1 7.2.2 9.7.4 8.2.6 3.1-11.1 0-11.6-1.4-.2-3.2-.3-5-.2 1.4-3.1 2.7-5.9 3.7-8.2 2.3-5.7-8.2-12.6-10.6-10.3-3 2.9-6.6 10.8-9.4 20.5-4 .7-6.9 1.4-6.9 1.4-3.9.7-4 9.7.2 8.9 1-.2 2.4-.3 4.1-.4-1.4 6.4-2.4 13.1-2.6 19.3-3.2 4-7 6.8-10.8 6.8-3.3 0-4.7-3.6-4.8-7.1-.1-7 .8-11.5 4.6-18.2 2.4-4.2-3.3-10.5-8.3-10.9-.2-.1-.4-.2-.6-.2-6.6 0-18.7 19.3-23.1 29.2.2-2.2-.2-2.6.3-5 0 0 1.8-4.6 3.1-9.2 1.8-6.8-9.2-16.2-12.3-5.7-.9 3-1.7 6.2-2.4 9.5-2.4 6.5-10.5 25.2-24.7 25.9-3.5.2-5.6-1.4-6.7-3.9 7.12-2 22.8-8 22.12-20.8-.3-7.4-7.5-12.13-13-11.9-12.2.6-22.2 12.8-24.2 25.3-1.34-.42-2.7-1.03-3.94-1.9.8-4.8 1-9.02.3-11.8-1.4-6.2-5.2-7.64-9.2-7.64-5.1 0-7 6-6.8 11.6.5 10.3 5.9 14.4 5.9 14.4s-4.6 14.2-10.2 15c-7.7 1.05-4.03-22.6-3.3-25.65.9-3.7-5.64-9-10.3-8.4-6.1.8-6.06 15.18-5.44 24.03-3.4 7.5-9.55 17.3-18.54 18.6-6.7.96-9.6-3.2-9.8-11.95-.1-3 .1-5.94.5-8.9 5.1-1.1 10.1-1.9 14.3-2 4.1-.1 6.5-4 5.3-9.22-1-4.6-2.4-5.8-6.9-4.93-1.9.3-5.4.8-9.5 1.6 2.1-6.8 4.7-12.5 6.5-16.2 7.3-1.6 14.3-2.3 19-1.1 2.9.8 5.8-2.2 5.8-8.1 0-6.3-5.1-8-8.1-7.6-7.1 1.1-40.3 6.8-49.6 15.27-4.6 4.22-3 13.6 1.14 11.6 1.45-.7 6.5-2.7 13.03-4.9-.94 2.9-2.6 8.3-4.05 14.6-7 2.1-13.5 5.03-16.7 9.1-3.8 4.9-.4 13.23 2.33 11.1 1.1-.9 5.75-2.9 11.9-4.9-.2 2.8-.3 5.7-.1 8.3 1.13 20 14.9 25.7 22.42 25.6 11.3-.1 19.1-10.9 23.9-21 2.6 5.2 7 11.3 15 10.5zm171.67-37.24c-2.24.12-3.72-.97-4.7-2.32 2.46-3.5 4.5-7.03 6.12-10.14 1.3 2.33 2.6 5.1 2.8 7.45.2 2.34-1.2 4.85-4.3 5zM125.47 45.6c2.4-.12 1.14 4.5-.96 7.08-1.5 1.9-2.7 3.05-7 4 1.3-5.63 4.6-10.93 8-11.1z"></path>
+			</svg>
+			<h1>Airmergle<sup>&trade;</sup></h1>
+			<div>
+				<figure id="user" data-signed-in>
+					<svg viewBox="0 0 48 48">
+						<clipPath id="icon-google">
+							<path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"></path>
+						</clipPath>
+						<path clip-path="url(#icon-google)" fill="#fbbc05" d="M0 37V11l17 13z"></path>
+						<path clip-path="url(#icon-google)" fill="#ea4335" d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
+						<path clip-path="url(#icon-google)" fill="#34a853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
+						<path clip-path="url(#icon-google)" fill="#4285f4" d="M48 48L17 24l-4-3 35-10z"></path>
+					</svg>
+					<img id="user-photo" width="120" height="120">
+				</figure>
+				<button id="user-sign-out" class="button--fancy button--cosy _lazy" tabindex="-1">
+					<svg><use xlink:href="#icon-cancel"></use></svg>
+				</button>
+			</div>
+		</header>
+		<section>
+			<p class="field">
+				<label class="field__label" for="key">
+					<span>API key</span>
+					<a class="_lazy" href="https://airtable.com/account" target="_blank" rel="noopener" tabindex="-1">
+						<svg><use xlink:href="#icon-airtable"></svg>
+					</a>
+				</label>
+				<input id="key" type="password" form="input" required>
+			</p>
+			<p class="field">
+				<label class="field__label" for="base">
+					<span>API base URL</span>
+					<a class="_lazy" href="https://airtable.com/api" target="_blank" rel="noopener" tabindex="-1">
+						<svg><use xlink:href="#icon-airtable"></svg>
+					</a>
+				</label>
+				<input id="base" type="text" form="input" required>
+			</p>
+			<p class="field">
+				<label class="field__label" for="table">
+					<span>Table name</span>
+					<a class="_lazy" href="https://airtable.com/api" target="_blank" rel="noopener" tabindex="-1">
+						<svg><use xlink:href="#icon-airtable"></svg>
+					</a>
+				</label>
+				<input id="table" type="text" form="input" required>
+			</p>
+			<p class="field">
+				<label class="field__label" for="view">
+					<span>Table view</span>
+					<a class="_lazy" href="https://airtable.com/api" target="_blank" rel="noopener" tabindex="-1">
+						<svg><use xlink:href="#icon-airtable"></svg>
+					</a>
+				</label>
+				<input id="view" type="text" form="input" required>
+			</p>
+			<div class="field _hungry">
+				<label class="field__label">
+					<span>Fields</span>
+					<label>
+						<span>As template tags</span>
+						<input id="fields-tags" type="checkbox">
+					</label>
+				</label>
+				<div class="list__header">
+					<label>Recipient name</label>
+					<label>Recipient address</label>
+				</div>
+				<ul id="fields" class="list _hungry"></ul>
+				<script id="fields-template" type="text/x-jsrender">
+					<li data-value="&lcub;&lcub;&gt;{{>#data.toCamelCase()}}&rcub;&rcub;">
+						<input type="radio" form="input" name="name" value="{{>#data.toCamelCase()}}">
+						<input type="radio" form="input" name="address" value="{{>#data.toCamelCase()}}">
+						<span>{{>#data}}</span>
+						<span><i class="editor__token editor__token--bossy _nerdy">&lcub;&lcub;&gt;{{>#data.toCamelCase()}}&rcub;&rcub;</i></span>
+						<svg><use xlink:href="#icon-forward"></use></svg>
+					</li>
+				</script>
+			</div>
+			<form id="input" hidden>
+				<input type="radio" name="name" value="" required>
+				<input type="radio" name="address" value="" required>
+			</form>
+		</section>
+		<section>
+			<p class="field">
+				<label class="field__label" for="sender">
+					<span>Sender</span>
+					<a class="_lazy" href="https://mail.google.com/mail/u/0/#settings/accounts" target="_blank" rel="noopener" tabindex="-1">
+						<svg><use; xlink:href="#icon-gmail"></svg>
+					</a>
+				</label>
+				<select id="sender" disabled></select>
+				<svg><use; xlink:href="#icon-bars"></use></svg>
+			</p>
+			<div class="field">
+				<label class="field__label" for="subject-template">Subject template</label>
+				<div class="editor editor--skinny" data-editor>
+					<code class="editor__target _nerdy"></code>
+					<input id="subject-template" class="editor__source _nerdy" type="text">
+				</div>
+			</div>
+			<div class="field _hungry">
+				<label class="field__label" for="message-template">
+					<span>Message template</span>
+					<label>
+						<span>Wrap lines</span>
+						<input id="message-template-wrap-lines" type="checkbox">
+					</label>
+				</label>
+				<div class="_hungry">
+					<div class="editor" data-editor>
+						<code class="editor__target _nerdy"></code>
+						<textarea id="message-template" class="editor__source _nerdy"></textarea>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<button id="load" class="button--cosy" disabled><svg><use; xlink:href="#icon-reload"></use></svg></button>
+			<div>
+				<button id="preview" disabled>Preview</button>
+				<button id="drafts" class="button--fancy" disabled data-signed-in>
+					<svg><use; xlink:href="#icon-gmail"></use></svg>
+					<span>Drafts</span>
+				</button>
+			</div>
+		</footer>
+		<div id="preview-dialog" class="dialog" hidden>
+			<section>
+				<p class="field">
+					<label class="field__label" for="recipient">Recipient</label>
+					<input id="recipient" type="text" readonly>
+				</p>
+				<p class="field">
+					<label class="field__label" for="subject">Subject</label>
+					<input id="subject" type="text" readonly>
+				</p>
+				<p class="field _hungry">
+					<label class="field__label" for="message">
+						<span>Message</span>
+						<a id="mailto" href>I can has plaintext mailto?</a>
+					</label>
+					<textarea id="message" class="_hungry _nerdy" readonly></textarea>
+				</p>
+			</section>
+			<footer>
+				<div>
+					<button id="first" class="button--cosy"><svg><use; xlink:href="#icon-arrow-first"></use></svg></button>
+					<button id="previous" class="button--cosy"><svg><use; xlink:href="#icon-arrow-left"></use></svg></button>
+					<button id="next" class="button--cosy"><svg><use; xlink:href="#icon-arrow-right"></use></svg></button>
+					<button id="last" class="button--cosy"><svg><use; xlink:href="#icon-arrow-last"></use></svg></button>
+					<span>Record <var id="current">&hellip;</var>&nbsp;of&nbsp;<var id="count">&hellip;</var></span>
+				</div>
+				<div>
+					<button id="cancel">Cancel</button>
+					<button id="draft" class="button--fancy" data-signed-in>
+						<svg><use xlink:href="#icon-gmail"></use></svg>
+						<span>Draft</span>
+					</button>
+				</div>
+			</footer>
+			<link tabindex="0">
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" hidden>
+			<symbol id="icon-airtable" viewBox="0 0 177 148">
+				<path fill="#fcb400" d="M79 1.9L13 29.2a4.4 4.4 0 0 0 .1 8.2l66.2 26.2a24.6 24.6 0 0 0 18.2 0l66.2-26.2a4.4 4.4 0 0 0 0-8.2l-66-27.3a24.2 24.2 0 0 0-18.7 0"/>
+				<path fill="#18bfff" d="M94.3 78v65.6c0 3.1 3.1 5.2 6 4l73.8-28.6a4.4 4.4 0 0 0 2.8-4V49.2c0-3.1-3.1-5.2-6-4.1L97 73.9a4.4 4.4 0 0 0-2.8 4"/>
+				<path fill="#f82b60" d="M77 81.3L55.1 92 53 93 6.7 115.2c-3 1.4-6.7-.8-6.7-4V49.6c0-1.2.6-2.2 1.4-3a5 5 0 0 1 1.1-.8c1.1-.7 2.7-.9 4-.3l70.2 27.8c3.5 1.4 3.8 6.4.3 8"/>
+				<path fill="rgba(0, 0, 0, 0.25)" d="M77 81.3L55.1 92 1.4 46.6a5 5 0 0 1 1.1-.8c1.1-.7 2.7-.9 4-.3l70.2 27.8c3.5 1.4 3.8 6.4.3 8"/>
+			</symbol>
+			<symbol id="icon-gmail" viewBox="0 0 256 194">
+				<path fill="#e3e3e3" d="M238.833923,193.595007 L16.1542195,193.595007 C7.51970044,193.595007 0.248526454,186.551057 0.248526454,177.689314 L0.248526454,16.8145898 C0.248526454,8.18007073 7.29247625,0.908896748 16.1542195,0.908896748 L238.833923,0.908896748 C247.468442,0.908896748 254.739616,7.95284654 254.739616,16.8145898 L254.739616,177.689314 C254.739616,186.551057 247.695666,193.595007 238.833923,193.595007 L238.833923,193.595007 Z"></path>
+				<path fill="#231f20" opacity="0.1" d="M32.0599126,193.595007 L127.266847,117.020456 L127.94852,112.930421 L29.7876708,42.2636988 L29.5604466,190.186644 L32.0599126,193.595007 Z"></path>
+				<path fill="#d54b3d" d="M16.1542195,193.595007 C7.29247625,193.595007 0.248526454,186.551057 0.248526454,177.689314 L0.248526454,16.5873656 C0.248526454,7.72562236 7.29247625,6.13505305 16.1542195,6.13505305 C25.0159628,6.13505305 32.0599126,7.95284654 32.0599126,16.5873656 L32.0599126,193.595007 L16.1542195,193.595007 L16.1542195,193.595007 Z"></path>
+				<path fill="#d54b3d" d="M238.833923,193.595007 L222.92823,193.595007 L222.92823,16.1329173 C222.92823,7.27117398 229.972179,6.13505305 238.833923,6.13505305 C247.695666,6.13505305 254.739616,7.27117398 254.739616,16.1329173 L254.739616,177.916538 C254.739616,186.551057 247.695666,193.595007 238.833923,193.595007 L238.833923,193.595007 Z"></path>
+				<path fill="#000" opacity="0.15" d="M170.666667,193.595007 L1.57979906,23.1947544 L10.4736149,26.8124541 L128.175744,111.567076 L254.73962,18.7604631 L254.739616,177.916538 C254.739616,186.551057 247.695666,193.595007 238.833923,193.595007 L170.666667,193.595007 Z"></path>
+				<path fill="#d54b3d" d="M127.266847,117.020456 L7.06525206,29.7663685 C0.0213022675,24.5402122 -2.02371542,14.542348 3.20244088,7.49839817 C8.42859718,0.454448374 18.6536856,-1.13612093 25.9248596,4.09003537 L127.494071,77.9378961 L229.744955,3.18113862 C236.788905,-2.04501768 246.786769,-0.454448374 252.012926,6.81672561 C257.239082,13.8606754 255.648513,23.8585396 248.377339,29.0846959 L127.266847,117.020456 L127.266847,117.020456 Z"></path>
+			</symbol>
+			<symbol id="icon-cancel" viewBox="0 0 32 32"><path fill="currentColor" d="M30.721 6.774l-9.197 9.253 9.197 9.198c0.385 0.384 0.385 1.007 0 1.392l-4.176 4.175c-0.383 0.385-1.006 0.385-1.391 0l-9.182-9.182-9.127 9.182c-0.384 0.385-1.007 0.385-1.392 0l-4.175-4.175c-0.384-0.385-0.384-1.008 0-1.392l9.127-9.182-9.126-9.126c-0.384-0.384-0.384-1.007 0-1.392l4.175-4.175c0.384-0.385 1.007-0.385 1.392 0l9.11 9.11 9.199-9.253c0.385-0.385 1.008-0.385 1.391 0l4.176 4.175c0.383 0.385 0.383 1.008-0.001 1.392z"></path></symbol>
+			<symbol id="icon-forward" viewBox="0 0 28 28"><path fill="currentColor" d="M28 10c0 0.266-0.109 0.516-0.297 0.703l-8 8c-0.187 0.187-0.438 0.297-0.703 0.297-0.547 0-1-0.453-1-1v-4h-3.5c-6.734 0-11.156 1.297-11.156 8.75 0 0.641 0.031 1.281 0.078 1.922 0.016 0.25 0.078 0.531 0.078 0.781 0 0.297-0.187 0.547-0.5 0.547-0.219 0-0.328-0.109-0.438-0.266-0.234-0.328-0.406-0.828-0.578-1.188-0.891-2-1.984-4.859-1.984-7.047 0-1.75 0.172-3.547 0.828-5.203 2.172-5.391 8.547-6.297 13.672-6.297h3.5v-4c0-0.547 0.453-1 1-1 0.266 0 0.516 0.109 0.703 0.297l8 8c0.187 0.187 0.297 0.438 0.297 0.703z"></path></symbol>
+			<symbol id="icon-bars" viewBox="0 0 24 28"><path fill="currentColor" d="M24 21v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 13v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 5v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1z"></path></symbol>
+			<symbol id="icon-arrow-right" viewBox="0 0 23 28"><path fill="currentColor" d="M23 15c0 0.531-0.203 1.047-0.578 1.422l-10.172 10.172c-0.375 0.359-0.891 0.578-1.422 0.578s-1.031-0.219-1.406-0.578l-1.172-1.172c-0.375-0.375-0.594-0.891-0.594-1.422s0.219-1.047 0.594-1.422l4.578-4.578h-11c-1.125 0-1.828-0.938-1.828-2v-2c0-1.062 0.703-2 1.828-2h11l-4.578-4.594c-0.375-0.359-0.594-0.875-0.594-1.406s0.219-1.047 0.594-1.406l1.172-1.172c0.375-0.375 0.875-0.594 1.406-0.594s1.047 0.219 1.422 0.594l10.172 10.172c0.375 0.359 0.578 0.875 0.578 1.406z"></path></symbol>
+			<symbol id="icon-arrow-left" viewBox="0 0 23 28"><use xlink:href="#icon-arrow-right" transform="scale(-1, 1) translate(-23, 0)"></use></symbol>
+			<symbol id="icon-arrow-last" viewBox="0 0 32 28">
+				<use xlink:href="#icon-arrow-right" transform="translate(-4, 0)"></use>
+				<line x1="26" y1="5" x2="26" y2="25" stroke="currentColor" stroke-width="6" stroke-linecap="round"></line>
+			</symbol>
+			<symbol id="icon-arrow-first" viewBox="0 0 32 28"><use xlink:href="#icon-arrow-last" transform="scale(-1, 1) translate(-32, 0)"></use></symbol>
+			<symbol id="icon-reload" viewBox="0 0 24 28"><path fill="currentColor" d="M23.609 16.5c0 0.031 0 0.078-0.016 0.109-1.328 5.531-5.891 9.391-11.656 9.391-3.047 0-6-1.203-8.219-3.313l-2.016 2.016c-0.187 0.187-0.438 0.297-0.703 0.297-0.547 0-1-0.453-1-1v-7c0-0.547 0.453-1 1-1h7c0.547 0 1 0.453 1 1 0 0.266-0.109 0.516-0.297 0.703l-2.141 2.141c1.469 1.375 3.422 2.156 5.437 2.156 2.781 0 5.359-1.437 6.813-3.813 0.375-0.609 0.562-1.203 0.828-1.828 0.078-0.219 0.234-0.359 0.469-0.359h3c0.281 0 0.5 0.234 0.5 0.5zM24 4v7c0 0.547-0.453 1-1 1h-7c-0.547 0-1-0.453-1-1 0-0.266 0.109-0.516 0.297-0.703l2.156-2.156c-1.484-1.375-3.437-2.141-5.453-2.141-2.781 0-5.359 1.437-6.813 3.813-0.375 0.609-0.562 1.203-0.828 1.828-0.078 0.219-0.234 0.359-0.469 0.359h-3.109c-0.281 0-0.5-0.234-0.5-0.5v-0.109c1.344-5.547 5.953-9.391 11.719-9.391 3.063 0 6.047 1.219 8.266 3.313l2.031-2.016c0.187-0.187 0.438-0.297 0.703-0.297 0.547 0 1 0.453 1 1z"></path></symbol>
+		</svg>
+		<script src="https://apis.google.com/js/api.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.90/jsrender.min.js"></script>
+		<script src="https://rawgit.com/eface2face/mimemessage.js/master/dist/mimemessage.js"></script>
+		<script>
+		String.prototype.toCamelCase = function() {
+			return this.toLowerCase().replace(/(?:^\w|[A-Z]|\b\w)/g, function(char, index) {
+				return !index ? char : char.toUpperCase();
+			}).replace(/[^a-z0-9]+/gi, "");
+		};
+
+		(function() {
+
+			// UI elements:
+			var UI = Array.from(document.querySelectorAll("[id]")).reduce(function(ui, target) {
+				ui[target.id.toCamelCase()] = target;
+				return ui;
+			}, {});
+			var CACHE = {
+				records: [],
+				index: 0
+			};
+
+			var retry = function(count, message, attempt) {
+				attempt()
+				.then(function() {
+					// @debug:
+					window.debug && console.log("%c" + message, "color: green;");
+				})
+				.catch(function(error) {
+					if(count > 1) {
+						// @debug:
+						window.debug && console.log("%c" + message, "color: orange;");
+						retry(count - 1, message, attempt);
+					}
+					else {
+						// @debug:
+						window.debug && console.log("%c" + message, "color: red;");
+						Promise.reject(error);
+					}
+				});
+			};
+
+			// Reset records cache and UI elements:
+			var reset = function() {
+				CACHE.records = [];
+				CACHE.index = 0;
+				// Reset table fields:
+				UI.fields.innerHTML = "";
+				validate();
+			};
+
+			// Check input validity and toggle buttons:
+			var validate = function() {
+				UI.load.disabled = UI.preview.disabled = UI.drafts.disabled = !UI.input.checkValidity();
+			};
+
+			// Restore saved input:
+			var restore = function(keys) {
+				(keys || Object.keys(localStorage)).forEach(function(key) {
+					var id = key.split("/").pop();
+					Array.from(document.querySelectorAll('#' + id +', [name="' + id + '"]')).forEach(function(input) {
+						if(input.type == "checkbox") {
+							// Toggle checkbox inputs:
+							input.checked = (localStorage[key] == "true");
+							input.dispatchEvent(new Event("change", { bubbles: true }));
+ 						}
+						else if(input.type == "radio") {
+							// Check radio inputs by value:
+							if(input.value == localStorage[key]) {
+								input.checked = true;
+							}
+						}
+						else if(input.options && input.options.length) {
+							// Set value for select inputs, but only if the value is an option:
+							var selectedIndex = Array.from(input.options).map(function(option) {
+								return option.value;
+							}).indexOf(localStorage[key]);
+							if(selectedIndex > -1) {
+								input.options.selectedIndex = selectedIndex;
+							}
+						}
+						else {
+							input.value = localStorage[key];
+						}
+						input.dispatchEvent(new Event("input", { bubbles: true }));
+					});
+				});
+			};
+
+			var signIn = function() {
+				var instance = gapi.auth2.getAuthInstance();
+				var signedIn = instance.isSignedIn.get();
+				// Sign in if not already so:
+				!signedIn && instance.signIn().catch(function(error) { alert(error.error); });
+				return signedIn;
+			};
+
+			var signedIn = function(signedIn) {
+				// Set signed-in state for buttons:
+				Array.from(document.querySelectorAll("button[data-signed-in]")).forEach(function(target) {
+					target.setAttribute("data-signed-in", signedIn);
+				});
+				if(signedIn) {
+					// Retrieve (a URL for a) user photo and set signed-in state after it has loaded:
+					gapi.client.plus.people.get({ userId: "me", fields: "image" })
+					.then(function(response) {
+						UI.userPhoto.src = response.result.image.url.replace(/sz=[0-9]+/, "sz=120");
+					});
+					// Retrieve Gmail sender addresses:
+					gapi.client.gmail.users.settings.sendAs.list({ userId: "me" })
+					.then(function(response) {
+						UI.sender.options.length = 0;
+						UI.sender.disabled = false;
+						response.result.sendAs.forEach(function(sendAs){
+							var sender = [sendAs.displayName, " <", sendAs.sendAsEmail, ">"].join("");
+							UI.sender.options.add(new Option(sender, sendAs.sendAsEmail, null, sendAs.isDefault));
+						});
+						restore(["airmergle/sender"]);
+					})
+				}
+				else {
+					UI.user.setAttribute("data-signed-in", false);
+					UI.sender.options.length = 0;
+					UI.sender.disabled = true;
+				}
+			};
+
+			// Retrieve and cache records:
+			var load = function() {
+				reset();
+				// Check required input:
+				if(![UI.key, UI.base, UI.table, UI.view].every(function(input) {
+					return input.validity.valid;
+				})) {
+					return;
+				}
+				// Go get 'em!
+				fetch(
+					[UI.base.value, "/", UI.table.value,"?view=", UI.view.value].join(""),
+					{headers: {"Authorization": "Bearer " + UI.key.value}}
+				)
+				.then(function(response) {
+					return response.json();
+				})
+				.then(function(data) {
+					if("error" in data) {
+						reset();
+						throw Error("Whale oil beef hooked, thar be an error: " + data.error);
+					}
+					// Flatten records to list of field names:
+					var names = data.records.reduce(function(names, record) {
+						record.fields.ID = record.id;
+						Object.keys(record.fields).forEach(function(name) {
+							names.add(name);
+						});
+						return names;
+					}, new Set());
+					// Transform records field names to camel case:
+					data.records = data.records.map(function(record) {
+						record.fields.ID = record.id;
+						return Object.entries(record.fields).reduce(function(fields, entry) {
+							fields[entry[0].toCamelCase()] = entry[1];
+							return fields;
+						}, {});
+					});
+					// Cache records for future reference and update UI elements:
+					CACHE.records = data.records;
+					UI.fields.innerHTML = jsrender.templates(UI.fieldsTemplate)(Array.from(names).sort());
+					UI.count.innerHTML = data.records.length;
+					restore(["airmergle/name", "airmergle/address"]);
+					validate();
+				});
+			};
+
+			var preview = function(index) {
+				CACHE.index = Math.max(Math.min(index, CACHE.records.length - 1), 0);
+				var fields = CACHE.records[CACHE.index];
+				var name = fields[UI.input.elements.name.value];
+				var address = fields[UI.input.elements.address.value];
+				// Show the dialog:
+				if(UI.previewDialog.hasAttribute("hidden")) {
+					UI.previewDialog.removeAttribute("hidden");
+					UI.cancel.focus();
+				}
+				// Fill preview elements:
+				UI.recipient.value = [name, " <", address, ">"].join("");
+				UI.subject.value  = jsrender.templates(UI.subjectTemplate.value)(fields);
+				UI.message.value  = jsrender.templates(UI.messageTemplate.value)(fields);
+				// Set button states:
+				UI.first.disabled = UI.previous.disabled = !CACHE.index;
+				UI.last.disabled = UI.next.disabled = !!(CACHE.index == (CACHE.records.length - 1));
+				UI.current.innerHTML = CACHE.index + 1;
+			};
+
+			var draft = function(index) {
+				// Build a MIME message:
+				var fields = CACHE.records[index];
+				var name = fields[UI.input.elements.name.value];
+				var address = fields[UI.input.elements.address.value];
+				var message = mimemessage.factory({
+					contentType: "text/html; charset=utf-8",
+					body: jsrender.templates(UI.messageTemplate.value)(fields)
+				});
+				message.header("From", UI.sender.value);
+				message.header("To", [name, " <", address, ">"].join(""));
+				message.header("Subject", jsrender.templates(UI.subjectTemplate.value)(fields));
+				// Create a Gmail draft for the signed in user:
+				var raw = btoa(message.toString()).replace(/\+/g, "-").replace(/\//g, "_");
+				retry(3, address, function () {
+					return gapi.client.gmail.users.drafts.create({
+						userId: "me",
+						message: { raw: raw }
+					});
+				});
+			};
+
+			// Bind buttons and inputs:
+
+			UI.user.addEventListener("click", signIn);
+			UI.userSignOut.addEventListener("click", function() {
+				setTimeout(function() {
+					gapi.auth2.getAuthInstance().signOut();
+				}, 250);
+			});
+
+			[UI.key, UI.base, UI.table, UI.view].forEach(function(input) {
+				input.addEventListener("change", load);
+			});
+
+			UI.key.addEventListener("focus", function() { this.type = "text"; });
+			UI.key.addEventListener("blur", function() { this.type = "password"; });
+
+			UI.fieldsTags.addEventListener("change", function() {
+				UI.fields.setAttribute("data-tags", this.checked);
+			});
+			UI.fields.addEventListener("click", function(event) {
+				if(!event.target.closest("svg")) {
+					return;
+				}
+				var value = event.target.closest("li").getAttribute("data-value");
+				var target = UI.messageTemplate;
+				var selection = {
+					start: target.selectionStart,
+					end: target.selectionEnd
+				}
+				target.value = [target.value.substring(0, selection.start), value, target.value.substring(selection.end)].join("");
+				target.selectionStart = selection.start;
+				target.selectionEnd = (selection.start + value.length);
+				target.focus();
+				target.dispatchEvent(new Event("input", { bubbles: true }));
+				target.dispatchEvent(new Event("change", { bubbles: true }));
+			});
+			UI.fields.addEventListener("change", validate);
+
+			UI.load.addEventListener("click", load);
+
+			UI.messageTemplateWrapLines.addEventListener("change", function() {
+				UI.messageTemplate.parentNode.setAttribute("data-wrap-lines", this.checked);
+				UI.messageTemplate.dispatchEvent(new Event("input"));
+			});
+
+			UI.preview.addEventListener("click", function() {
+				preview(CACHE.index);
+			});
+
+			UI.drafts.addEventListener("click", function() {
+				if(!signIn()) {
+					return;
+				}
+				// @debug:
+				window.debug && console.group("Creating " + CACHE.records.length + " drafts");
+				CACHE.records.forEach(function(record, index) {
+					draft(index);
+				});
+			});
+
+			UI.draft.addEventListener("click", function() {
+				if(!signIn()) {
+					return;
+				}
+				// @debug:
+				window.debug && console.group("Creating a single draft");
+				draft(CACHE.index);
+			});
+
+			UI.first.addEventListener("click", function() { preview(0); });
+			UI.previous.addEventListener("click", function() { preview(CACHE.index - 1); });
+			UI.next.addEventListener("click", function() { preview(CACHE.index + 1); });
+			UI.last.addEventListener("click", function() { preview(CACHE.records.length - 1); });
+
+			UI.mailto.addEventListener("click", function(event) {
+				event.preventDefault();
+				open(["mailto:", encodeURIComponent(UI.recipient.value), "?subject=", encodeURIComponent(UI.subject.value), "&body=", encodeURIComponent(UI.message.value)].join(""));
+			});
+
+			UI.cancel.addEventListener("click", function() {
+				UI.previewDialog.setAttribute("hidden", "");
+				UI.preview.focus();
+			});
+
+			// Bind keys:
+			UI.messageTemplate.addEventListener("keydown", function(event) {
+				switch(event.key) {
+					case "Tab":
+						if(event.shiftKey || event.altKey) {
+							break;
+						}
+						event.preventDefault();
+						var selection = {
+							start: this.selectionStart,
+							end: this.selectionEnd
+						}
+						this.value = [this.value.substring(0, selection.start), "\t", this.value.substring(selection.end)].join("");
+						this.selectionStart = this.selectionEnd = (selection.start + 1);
+						this.dispatchEvent(new Event("input", { bubbles: true }));
+						this.dispatchEvent(new Event("change", { bubbles: true }));
+						break;
+				}
+			});
+
+			// Bind, erm... other stuff:
+			UI.userPhoto.addEventListener("load", function() {
+				requestAnimationFrame(function() { UI.user.setAttribute("data-signed-in", true); });
+			});
+
+			document.addEventListener("keydown", function(event) {
+				if(UI.previewDialog.hasAttribute("hidden")) {
+					return;
+				}
+				switch(event.key) {
+					case "Escape":
+						UI.previewDialog.setAttribute("hidden", "");
+						UI.preview.focus();
+						break;
+					case "ArrowLeft":
+						preview(CACHE.index - 1);
+						break;
+					case "ArrowRight":
+						preview(CACHE.index + 1);
+						break;
+				}
+			});
+
+			// Store saved input:
+			document.body.addEventListener("change", function(event) {
+				var input = event.target;
+				var value = input.type == "checkbox" ? input.checked : input.value;
+				localStorage["airmergle/" + (input.id || input.name)] = value;
+			});
+
+			// Setup Google sign-in:
+			gapi.load("client:auth2", function() {
+				gapi.client.init({
+					clientId: "1028687911483-3hff5cp7fgm36ohguidtmengckcdcjn6.apps.googleusercontent.com",
+					discoveryDocs: [
+						"https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest",
+						"https://www.googleapis.com/discovery/v1/apis/plus/v1/rest"
+					],
+					scope: [
+						"https://www.googleapis.com/auth/gmail.readonly",
+						"https://www.googleapis.com/auth/gmail.compose",
+						"https://www.googleapis.com/auth/userinfo.profile"
+					].join(" ")
+				})
+				.then(function() {
+					setTimeout(function() {
+						var instance = gapi.auth2.getAuthInstance();
+						instance.isSignedIn.listen(signedIn);
+						signedIn(instance.isSignedIn.get());
+					}, 500);
+				});
+			});
+
+			restore();
+			setTimeout(load, 500);
+
+		})();
+
+		// Trap focus in dialogs 'n' stuff:
+		Array.from(document.querySelectorAll('[rel="trap"]')).forEach(function(trap) {
+			trap.addEventListener("focus", function() {
+				var query = 'input:not(:disabled), textarea:not(:disabled), a[href], [tabindex]:not([tabindex="-1"])';
+				this.parentNode.querySelector(query).focus();
+			});
+		});
+
+		// Magically transform ordinary textarea's into fancy editors with syntax highlighting:
+		Array.from(document.querySelectorAll("[data-editor]")).forEach(function(container) {
+
+			var UI = {
+				source: container.querySelector("textarea, input"),
+				target: container.querySelector("code")
+			};
+			var MAPPING = {
+				tokens: [/[&<>]|{{|}}/gi, { "&": "§amp;", "<": "§lt;", ">": "§gt;", "{{": "«•", "}}": "•»" } ],
+				placeholders: [ /§|«•|•»/g, { "§": "&", "«•": "{{", "•»": "}}" } ]
+			};
+
+			var resize = function() {
+				UI.source.style.width = 0;
+				UI.source.style.height = 0;
+				UI.source.style.width = UI.target.style.width = UI.source.scrollWidth + "px";
+				UI.source.style.height = UI.target.style.height = UI.source.scrollHeight + "px";
+			};
+
+			var input = function() {
+				// Replace syntax markers with placeholders:
+				UI.target.innerHTML = UI.source.value.replace(MAPPING.tokens[0], function(match) {
+					return MAPPING.tokens[1][match] || match;
+				})
+				// Wrap entities and template tags:
+				.replace(/§amp;([#a-z0-9]+);/gi, '<i class="editor__token editor__token--noisy">&amp;$1;</i>')
+				.replace(/«•([^«»\n]*)•»/g, '<i class="editor__token editor__token--bossy">{{$1}}</i>')
+				// Re-replace placeholders with original chars, and "special" chars with entities:
+				.replace(MAPPING.placeholders[0], function(match) {
+					return MAPPING.placeholders[1][match] || match;
+				});
+				resize();
+			};
+
+			// Keep things properly sized and up to date:
+			UI.source.addEventListener("input", input);
+
+			input();
+
+		});
+		</script>
+	</body>
+</html>
