@@ -16,24 +16,25 @@ li {
 	outline: none;
 }
 
-a {
+a:not(.button) {
 	position: relative;
 	border-bottom: 1px solid currentColor;
-}
-a::before {
-	transition: opacity 200ms 25ms ease-in-out;
-	position: absolute;
-	top: 100%;
-	right: -1px;
-	left: -1px;
-	margin-top: -1px;
-	height: 3px;
-	border-radius: 3px;
-	background-color: currentColor;
-	content: "";
-}
-a:not(:hover):not(:focus)::before {
-	opacity: 0;
+
+	&::before {
+		transition: opacity 200ms 25ms ease-in-out;
+		position: absolute;
+		top: 100%;
+		right: -1px;
+		left: -1px;
+		margin-top: -1px;
+		height: 3px;
+		border-radius: 3px;
+		background-color: currentColor;
+		content: "";
+	}
+	&:not(:hover):not(:focus)::before {
+		opacity: 0;
+	}
 }
 
 html {
