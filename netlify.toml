@@ -22,7 +22,7 @@
 [headers.values]
 	Content-Security-Policy = """
 		default-src 'none'; \
-		script-src 'self' 'unsafe-eval' *.cloudfront.net cdnjs.cloudflare.com polyfill.io apis.google.com rawgit.com; \
+		script-src 'self' 'unsafe-eval' *.cloudfront.net cdnjs.cloudflare.com polyfill.io apis.google.com rawgit.com 'sha256-mFquFlQqNXppjiEBPWCy5dhq/RhUxwRWcSM8US29Cig='; \
 		style-src 'self' *.cloudfront.net fonts.googleapis.com; \
 		img-src 'self' *.cloudfront.net dl.airtable.com *.googleusercontent.com blob:; \
 		font-src 'self' fonts.gstatic.com; \
