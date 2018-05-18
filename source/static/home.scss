@@ -21,7 +21,7 @@ a:not(.button) {
 	border-bottom: 1px solid currentColor;
 
 	&::before {
-		transition: opacity 200ms 25ms ease-in-out;
+		transition: opacity 250ms 25ms ease-in-out;
 		position: absolute;
 		top: 100%;
 		right: -1px;
