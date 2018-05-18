@@ -212,23 +212,3 @@ footer {
 	&--gittogreat { background-color: #0cbf31; }
 	&--serverless-amsterdam { background-color: #369; }
 }
-
-html[data-scrolled="false"] .shimmy {
-	animation: shimmy 650ms 200ms forwards;
-	transform: translateY(3.5rem);
-	opacity: 0;
-
-	& > & {
-		animation-delay: 200ms;
-		transform: translateY(2.5rem);
-	}
-}
-@keyframes shimmy {
-	50% {
-		opacity: 1;
-	}
-	100% {
-		transform: none;
-		opacity: 1;
-	}
-}
