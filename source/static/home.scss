@@ -12,8 +12,28 @@
 li {
 	list-style: none;
 }
+:focus {
+	outline: none;
+}
+
 a {
+	position: relative;
 	border-bottom: 1px solid currentColor;
+}
+a::before {
+	transition: opacity 200ms 25ms ease-in-out;
+	position: absolute;
+	top: 100%;
+	right: -1px;
+	left: -1px;
+	margin-top: -1px;
+	height: 3px;
+	border-radius: 3px;
+	background-color: currentColor;
+	content: "";
+}
+a:not(:hover):not(:focus)::before {
+	opacity: 0;
 }
 
 html {
@@ -49,8 +69,8 @@ header {
 		margin-bottom: 3.5rem;
 		width: 100%;
 		max-width: 30rem;
-		line-height: 1.5;
-		font-size: 1.25rem;
+		line-height: 1.35;
+		font-size: 1.75rem;
 
 		& > em {
 			font-weight: 700;
@@ -58,6 +78,7 @@ header {
 	}
 	& > h2 {
 		margin-bottom: 1rem;
+		font-size: 1.25rem;
 	}
 	& > p > .button {
 		transition: border-color 100ms 25ms, background-color 100ms 25ms;
