@@ -57,6 +57,7 @@ header {
 	align-items: center;
 	padding: 0 1rem 5rem 1rem;
 	text-align: center;
+	line-height: 1.35;
 
 	& > svg {
 		transform: translateY(-50%);
@@ -66,38 +67,40 @@ header {
 		height: auto;
 	}
 	& > h1 {
-		margin-bottom: 3.5rem;
+		margin-bottom: 1rem;
 		width: 100%;
-		max-width: 30rem;
-		line-height: 1.35;
-		font-size: 1.35rem;
+		max-width: 25rem;
+		font-size: calc(1.25rem + 0.5vw);
 
 		& > em {
 			font-weight: 700;
 		}
 	}
-	& > h2 {
-		margin-bottom: 1rem;
-		font-size: 1.25rem;
-	}
-	& > p > .button {
-		transition: border-color 100ms 25ms, background-color 100ms 25ms;
-		display: block;
-		border-top: 2px solid transparent;
-		border-bottom: 2px solid rgba(0, 0, 0, 0.175);
-		border-radius: 0.25rem;
-		background-color: #0cbf31;
-		padding: 1rem 2.5rem;
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: white;
+	& > p {
+		margin-top: 1rem;
+		max-width: 25rem;
+		font-size: 1.125rem;
 
-		&:hover:not(:active),
-		&:focus:not(:active) {
-			background-color: lighten(#0cbf31, 3.5%);
-		}
-		&:active {
-			border-bottom-color: transparent;
+		& > .button {
+			transition: border-color 100ms 25ms, background-color 100ms 25ms;
+			display: block;
+			margin-top: 1rem;
+			border-top: 2px solid transparent;
+			border-bottom: 2px solid rgba(0, 0, 0, 0.175);
+			border-radius: 0.25rem;
+			background-color: #0cbf31;
+			padding: 1rem 2.5rem;
+			font-size: 1.25rem;
+			font-weight: 600;
+			color: white;
+
+			&:hover:not(:active),
+			&:focus:not(:active) {
+				background-color: lighten(#0cbf31, 3.5%);
+			}
+			&:active {
+				border-bottom-color: transparent;
+			}
 		}
 	}
 }
