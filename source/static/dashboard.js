@@ -1,3 +1,5 @@
+// @todo: Build URLs from a base URL, retrieved from a data attribute.
+
 // Copy speaker ID from the URL hash to local storage for future reference:
 if(location.hash) {
 	localStorage.setItem("speakerId", location.hash.substr(1));

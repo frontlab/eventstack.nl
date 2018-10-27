@@ -62,7 +62,6 @@ link[tabindex] {
 
 /* Layout */
 html {
-	overflow: hidden;
 	background-color: black;
 	line-height: 1;
 	font-family: "Nunito", sans-serif;
@@ -79,6 +78,7 @@ section {
 	flex-direction: column;
 	min-width: 20rem;
 	height: calc(100vh - 8.5rem);
+	min-height: 30rem;
 	padding: 1rem;
 }
 section:nth-of-type(1) {
@@ -86,7 +86,6 @@ section:nth-of-type(1) {
 }
 section:nth-of-type(2) {
 	flex: 5;
-	min-height: 30rem;
 }
 
 /* Header */
@@ -106,17 +105,21 @@ header::after {
 	width: 5rem;
 	content: "";
 }
-header > svg {
-	height: 1.5rem;
-}
 header > h1 {
-	font-size: 1.25rem;
+	font-size: 1.375rem;
+	font-weight: 600;
 	color: mediumseagreen;
 }
 header > h1 > sup {
 	vertical-align: top;
 	font-family: sans-serif;
-	font-size: 0.875rem;
+	font-size: 0.975rem;
+	font-weight: normal;
+}
+header > svg {
+	align-self: flex-start;
+	margin-top: 0.375rem;
+	height: 3.175rem;
 }
 header > div {
 	position: absolute;
@@ -319,13 +322,6 @@ figure + button:not(:hover) {
 	flex: 1;
 	margin-left: 0.5rem;
 }
-/*
-.list > li > span > i {
-	border-radius: 2px;
-	background: currentColor linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
-	color: cornflowerblue;
-}
-*/
 .list[data-tags="true"] > li > span:nth-of-type(1) { display: none; }
 .list:not([data-tags="true"]) > li > span:nth-of-type(2) { display: none; }
 
@@ -577,7 +573,8 @@ button[data-signed-in="false"]::after { background-color: tomato; }
 .editor__token {
 	box-decoration-break: clone;
 	border-radius: 2px;
-	background: currentColor linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+	background: currentColor linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85) 110%);
+	background-size: 110%; /* Trick to prevent background color peeking out behind background image. */
 }
 .editor__token--noisy { color: seagreen; }
 .editor__token--bossy { color: cornflowerblue; }

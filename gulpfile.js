@@ -20,7 +20,7 @@ gulp.task("html", function() {
 });
 
 gulp.task("css", function() {
-	return gulp.src("./source/static/*.scss")
+	return gulp.src("./source/static/**/*.scss")
 	.pipe(sass({outputStyle: "compressed"}))
 	.pipe(autoprefixer({browsers: ["last 2 versions"]}))
 	.pipe(rename({suffix: ".min"}))
@@ -28,7 +28,7 @@ gulp.task("css", function() {
 });
 
 gulp.task("js", function() {
-	return gulp.src("./source/static/*.js")
+	return gulp.src("./source/static/**/*.js")
 	.pipe(uglify())
 	.pipe(rename({suffix: ".min"}))
 	.pipe(gulp.dest("./target/static/"));

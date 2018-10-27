@@ -2,15 +2,15 @@
 <html>
 	<head>
 		<title>Speaker dashboard &bull; Fronteers Conference</title>
-		<!--=include ../include/dashboard-head.html -->
+		<!--=include include/head.html -->
 		<link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 	</head>
 	<body data-schedule>
 		<input id="dialog-toggle" type="checkbox" hidden data-dialog-toggle>
 		<div class="banner">
 			<img
-				srcset="/static/dashboard-header.large.png 1200w, /static/dashboard-header.small.png 600w"
-				src="/static/dashboard-header.large.png">
+				srcset="/static/fronteersconf/header.large.png 1200w, /static/fronteersconf/header.small.png 600w"
+				src="/static/fronteersconf/header.large.png">
 		</div>
 		<nav>
 			<ul>
@@ -58,7 +58,7 @@
 			<h2>Conference and side&nbsp;events</h2>
 			<div>
 				<p><small>Retrieving&hellip;</small></p>
-				<!--=include ../include/dashboard-schedule-template.html -->
+				<!--=include include/schedule-template.html -->
 			</div>
 		</section>
 		<div class="dialog">
@@ -72,8 +72,8 @@
 				</p>
 			</div>
 		</div>
-		<!--=include ../include/dashboard-footer.html -->
-		<!--=include ../include/dashboard-icons.html -->
+		<!--=include include/footer.html -->
+		<!--=include include/icons.html -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/fecha/2.3.3/fecha.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.90/jsrender.min.js"></script>
 		<script src="/static/dashboard.min.js"></script>
