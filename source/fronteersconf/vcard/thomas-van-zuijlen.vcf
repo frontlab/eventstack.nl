@@ -1,9 +1,0 @@
-BEGIN:VCARD
-VERSION:3.0
-N:van Zuijlen;Thomas;;;
-FN:Thomas van Zuijlen
-ORG:Fronteers Conference;
-TITLE:Speaker liaison
-EMAIL;type=INTERNET;type=WORK;type=pref:thomas@eventstack.nl
-TEL;type=CELL;type=pref:+31618318417
-END:VCARD
