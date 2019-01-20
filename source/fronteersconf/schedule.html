@@ -7,15 +7,11 @@
 	</head>
 	<body data-schedule>
 		<input id="dialog-toggle" type="checkbox" hidden data-dialog-toggle>
-		<div class="banner">
-			<img
-				srcset="/static/fronteersconf/header.large.png 1200w, /static/fronteersconf/header.small.png 600w"
-				src="/static/fronteersconf/header.large.png">
-		</div>
+		<!--=include include/banner.html -->
 		<nav>
 			<ul>
-				<li><a class="link" href="dashboard">Speaker dashboard</a></li>
-				<li><a class="link" href="travel">Travel details</a></li>
+				<li><a class="link" href="dashboard"><span>Speaker dashboard</span></a></li>
+				<li><a class="link" href="travel"><span>Travel details</span></a></li>
 				<li data-state="active">Events schedule</li>
 			</ul>
 		</nav>
