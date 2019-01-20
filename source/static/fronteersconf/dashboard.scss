@@ -1,8 +1,8 @@
 // Variables:
-$purple-mild: #eee;
-$purple-haze: #f2bb00;
-$purple-hard: #00a0d2;
-$green-happy: #5bab40;
+$color-mild: #eee;
+$color-wild: #f2bb00;
+$color-hard: #00a0d2;
+$color-happy: #5bab40;
 
 // Mixins:
 @mixin hocus {
@@ -75,13 +75,18 @@ body {
 // Logo banner:
 .banner {
 	width: 100%;
-	background-color: $purple-mild;
+	background-color: $color-mild;
 	text-align: center;
 
-	& > span {
+	& > p {
 		display: block;
-		background-color: $purple-haze;
+		background-color: $color-wild;
 		padding: 0.5rem;
+		line-height: 1.175rem;
+
+		& > * {
+			white-space: nowrap;
+		}
 	}
 	& > img {
 		width: 100%;
@@ -100,17 +105,20 @@ nav > ul {
 
 	& > li {
 		border-radius: 0.25rem;
-		background-color: $purple-mild;
+		background-color: $color-mild;
 		text-align: center;
 		line-height: 1.75;
 		font-size: 1.125rem;
 
-		& + li {
-			margin-left: 1rem;
+		&:first-of-type {
+			border-radius: 0.25rem 0 0 0.25rem;
+		}
+		&:last-of-type {
+			border-radius: 0 0.25rem 0.25rem 0;
 		}
 		&[data-state="active"] {
 			position: relative;
-			background-color: $purple-hard;
+			background-color: $color-hard;
 			padding: 0.5rem 1.5rem;
 			color: white;
 		}
@@ -123,10 +131,10 @@ nav > ul {
 			height: 0;
 			border-style: solid;
 			border-width: 10px 10px 0 10px;
-			border-color: $purple-hard transparent transparent transparent;
+			border-color: $color-hard transparent transparent transparent;
 			content: "";
 		}
-		& .link {
+		& > .link {
 			transition: color 200ms 25ms;
 			display: block;
 			border: none;
@@ -164,7 +172,7 @@ section {
 	margin-right: 1rem;
 	width: calc(100% - 2rem);
 	max-width: 37.5rem;
-	background-color: $purple-mild;
+	background-color: $color-mild;
 	padding: 2rem;
 
 	& + section {
@@ -201,7 +209,7 @@ body > footer {
 form {
 
 	& > section:last-of-type {
-		border-bottom: 4.5rem solid $purple-mild;
+		border-bottom: 4.5rem solid $color-mild;
 	}
 	& > footer {
 		transition: transform 350ms;
@@ -268,8 +276,8 @@ form {
 		margin: -0.5rem 0 0 -3.5rem;
 		width: 2.5rem;
 		height: 2.5rem;
-		border: 0.25rem solid $purple-mild;
-		border-top-color: $purple-hard;
+		border: 0.25rem solid $color-mild;
+		border-top-color: $color-hard;
 		border-radius: 50%;
 		content: "";
 	}
@@ -290,8 +298,8 @@ select {
 	background: white url(""); // Safari needs this.
 
 	&:focus {
-		box-shadow: 0 0 0 1px $purple-hard;
-		border-color: $purple-hard;
+		box-shadow: 0 0 0 1px $color-hard;
+		border-color: $color-hard;
 	}
 }
 input {
@@ -319,7 +327,7 @@ button {
 	height: 3rem;
 	min-width: 10rem;
 	border-radius: 0.25rem;
-	background-color: $green-happy;
+	background-color: $color-happy;
 	padding: 0 1rem;
 	font-size: 1.25rem;
 	font-weight: bold;
@@ -327,7 +335,7 @@ button {
 	user-select: none;
 
 	@include hocus {
-		box-shadow: 0 0 0 2px white, 0 0 0 4px $purple-hard;
+		box-shadow: 0 0 0 2px white, 0 0 0 4px $color-hard;
 		border-radius: 0.125rem;
 	}
 }
@@ -431,11 +439,11 @@ td {
 	transition: border-color 200ms 25ms;
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
-	color: $purple-hard;
+	color: $color-hard;
 
 	@include hocus {
 		border-color: currentColor;
-		color: $purple-hard;
+		color: $color-hard;
 	}
 	&--modest {
 		font-size: 0.8125rem;
@@ -471,7 +479,7 @@ td {
 
 		&:not(.link--modest) {
 			border-radius: 0.25rem;
-			background-color: $purple-mild;
+			background-color: $color-mild;
 			padding: 0.25rem 1rem 0.25rem 0.5rem;
 		}
 		& > span {
@@ -521,7 +529,7 @@ td {
 
 	@include hocus {
 		border-color: currentColor;
-		color: $purple-hard;
+		color: $color-hard;
 	}
 	& > svg {
 		display: block;
@@ -580,7 +588,7 @@ td {
 			width: 100%;
 			height: 100%;
 			padding: 1rem;
-			color: $purple-hard;
+			color: $color-hard;
 		}
 		&::before {
 			transform: translateX(-50%) translateY(-50%);
@@ -679,8 +687,8 @@ td {
 		margin: 0 0 0.5rem -1.25rem;
 		width: 2.5rem;
 		height: 2.5rem;
-		border: 0.25rem solid $purple-mild;
-		border-top-color: $purple-hard;
+		border: 0.25rem solid $color-mild;
+		border-top-color: $color-hard;
 		border-radius: 50%;
 		content: "";
 	}
@@ -694,7 +702,8 @@ td {
 
 		& > li {
 			order: 0;
-			margin: 0.5rem 0 0 0 !important;
+			border-radius: 0.25rem !important;
+			margin: 0.5rem 0 0 0;
 
 			&[data-state="active"] {
 				order: 1;
