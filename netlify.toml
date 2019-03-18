@@ -10,12 +10,6 @@
 	status = 301
 	force = true
 
-[[redirects]]
-	from = "/fronteersconf/calendar.ics"
-	to = "https://airtable.com/shr4x0OSCQ5CekkrT/iCal?timeZone=Europe%2FAmsterdam&userLocale=en"
-	status = 302
-	force = true
-
 [[headers]]
 	for = "/*"
 
