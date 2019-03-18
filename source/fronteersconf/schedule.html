@@ -6,7 +6,6 @@
 		<link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 	</head>
 	<body data-schedule>
-		<input id="dialog-toggle" type="checkbox" hidden data-dialog-toggle>
 		<!--=include include/banner.html -->
 		<nav>
 			<ul>
@@ -48,28 +47,11 @@
 		</header>
 		<section>
 			<h2>Conference and side&nbsp;events</h2>
-			<!--
-			<label for="dialog-toggle" class="link link--modest" tabindex="0">
-				<svg class="icon"><use xlink:href="#icon-calendar"></use></svg>
-				<span>Add this schedule to your calendar</span>
-			</label>
-			-->
 			<div>
 				<p><small>Retrieving&hellip;</small></p>
 				<!--=include include/schedule-template.html -->
 			</div>
 		</section>
-		<div class="dialog">
-			<label for="dialog-toggle" tabindex="0"><svg><use xlink:href="#icon-cross"></use></svg></label>
-			<div>
-				<h2>Add to your calendar</h2>
-				<p>You can view the conference schedule in your calendar of choice, like Google Calendar, the macOS calendar app or Outlook, by subscribing to the URL below.</p>
-				<p>
-					<small>Your calendar keeps you up to date by regularly refreshing events from this public URL.</small>
-					<input type="text" value="https://eventstack.nl/fronteersconf/calendar.ics" readonly onfocus="this.select();">
-				</p>
-			</div>
-		</div>
 		<!--=include include/footer.html -->
 		<!--=include include/icons.html -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/fecha/2.3.3/fecha.min.js"></script>
