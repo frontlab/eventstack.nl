@@ -11,6 +11,7 @@ String.prototype.toCamelCase = function() {
 		ui[target.id.toCamelCase()] = target;
 		return ui;
 	}, {});
+
 	var CACHE = {
 		records: [],
 		index: 0
@@ -180,8 +181,8 @@ String.prototype.toCamelCase = function() {
 		}
 		// Fill preview elements:
 		UI.recipient.value = [name, " <", address, ">"].join("");
-		UI.subject.value  = jsrender.templates(UI.subjectTemplate.value)(fields);
-		UI.message.value  = jsrender.templates(UI.messageTemplate.value)(fields);
+		UI.subject.value = jsrender.templates(UI.subjectTemplate.value)(fields);
+		UI.message.value = jsrender.templates(UI.messageTemplate.value)(fields);
 		// Set button states:
 		UI.first.disabled = UI.previous.disabled = !CACHE.index;
 		UI.last.disabled = UI.next.disabled = !!(CACHE.index == (CACHE.records.length - 1));

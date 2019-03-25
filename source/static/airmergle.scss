@@ -214,7 +214,7 @@ figure + button:not(:hover) {
 	justify-content: space-between;
 	align-items: flex-end;
 	margin-bottom: 0.35rem;
-	font-weight: bold;
+	font-weight: 600;
 	user-select: none;
 }
 .field__label > a {
@@ -364,7 +364,6 @@ textarea {
 }
 select {
 	appearance: none;
-	height: 2rem;
 }
 select + svg {
 	position: absolute;
@@ -406,7 +405,7 @@ button {
 	border-radius: 0.1875rem;
 	background-color: #ddd;
 	padding: 0.5rem 1.5rem;
-	font-weight: bold;
+	font-weight: 600;
 	color: #666;
 	user-select: none;
 }
