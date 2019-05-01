@@ -41,7 +41,7 @@ def row(speaker, key, current, updated, formatter=None):
 
 
 table = [["Speaker", "Field"]]
-speakers = fetch("/Speaker")
+speakers = filter(lambda speaker: "Speaker dashboard" in speaker, fetch("/Speaker"))
 
 for speaker in speakers:
 	person = fetch(f'/Person/{speaker["Person"][0]}')

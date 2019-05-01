@@ -1,5 +1,0 @@
-eventstack.nl.test:8080 {
-	tls eventstack.nl.test.pem eventstack.nl.test-key.pem
-	root ./target
-	ext .html
-}
