@@ -196,13 +196,12 @@ String.prototype.toCamelCase = function() {
 		var address = fields[UI.input.elements.address.value];
 		var message = mimemessage.factory({
 			contentType: "text/html; charset=utf-8",
-			body: jsrender.templates(UI.messageTemplate.value)(fields)
+			body: markdownit().render(jsrender.templates(UI.messageTemplate.value)(fields))
 		});
 		message.header("From", UI.sender.value);
 		message.header("To", [name, " <", address, ">"].join(""));
 		message.header("Subject", jsrender.templates(UI.subjectTemplate.value)(fields));
 		// Create a Gmail draft for the signed in user:
-		// @debug: var raw = btoa(message.toString()).replace(/\+/g, "-").replace(/\//g, "_");
 		var raw = Base64.encodeURI(message.toString());
 		retry(3, address, function () {
 			return gapi.client.gmail.users.drafts.create({
