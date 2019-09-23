@@ -17,7 +17,11 @@ String.prototype.toCamelCase = function() {
 		index: 0
 	};
 
-	var markdown = markdownit();
+	var markdown = markdownit({
+		html: true,
+		breaks: true,
+		linkify: true,
+	});
 
 	var retry = function(count, message, attempt) {
 		attempt()
