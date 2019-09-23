@@ -16,11 +16,11 @@
 	[headers.values]
 	Content-Security-Policy = """
 		default-src 'none'; \
-		script-src 'self' 'unsafe-eval' *.cloudfront.net cdnjs.cloudflare.com polyfill.io apis.google.com rawgit.com; \
+		script-src 'self' 'unsafe-eval' *.cloudfront.net apis.google.com cdn.jsdelivr.net cdnjs.cloudflare.com polyfill.io rawgit.com; \
 		style-src 'self' *.cloudfront.net fonts.googleapis.com; \
-		img-src 'self' *.cloudfront.net dl.airtable.com *.googleusercontent.com blob:; \
+		img-src 'self' *.cloudfront.net *.googleusercontent.com dl.airtable.com blob:; \
 		font-src 'self' fonts.gstatic.com; \
-		connect-src 'self' api.eventstack.nl hooks.zapier.com api.airtable.com; \
+		connect-src 'self' api.airtable.com api.eventstack.nl hooks.zapier.com; \
 		manifest-src 'self'; \
 		frame-src accounts.google.com content.googleapis.com; \
 		frame-ancestors 'none'; \
