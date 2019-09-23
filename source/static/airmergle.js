@@ -202,7 +202,8 @@ String.prototype.toCamelCase = function() {
 		message.header("To", [name, " <", address, ">"].join(""));
 		message.header("Subject", jsrender.templates(UI.subjectTemplate.value)(fields));
 		// Create a Gmail draft for the signed in user:
-		var raw = btoa(message.toString()).replace(/\+/g, "-").replace(/\//g, "_");
+		// @debug: var raw = btoa(message.toString()).replace(/\+/g, "-").replace(/\//g, "_");
+		var raw = Base64.encodeURI(message.toString());
 		retry(3, address, function () {
 			return gapi.client.gmail.users.drafts.create({
 				userId: "me",
