@@ -17,6 +17,8 @@ String.prototype.toCamelCase = function() {
 		index: 0
 	};
 
+	var markdown = markdownit();
+
 	var retry = function(count, message, attempt) {
 		attempt()
 		.then(function() {
@@ -196,7 +198,7 @@ String.prototype.toCamelCase = function() {
 		var address = fields[UI.input.elements.address.value];
 		var message = mimemessage.factory({
 			contentType: "text/html; charset=utf-8",
-			body: markdownit().render(jsrender.templates(UI.messageTemplate.value)(fields))
+			body: markdown.render(jsrender.templates(UI.messageTemplate.value)(fields))
 		});
 		message.header("From", UI.sender.value);
 		message.header("To", [name, " <", address, ">"].join(""));
