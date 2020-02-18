@@ -1,9 +1,0 @@
-BEGIN:VCARD
-VERSION:3.0
-N:van Hellemond;Jan;;;
-FN:Jan van Hellemond
-ORG:Fronteers Conference;
-TITLE:Speaker liaison
-EMAIL;type=INTERNET;type=WORK;type=pref:jan@eventstack.nl
-TEL;type=CELL;type=pref:+31610769246
-END:VCARD
