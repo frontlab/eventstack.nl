@@ -1,8 +1,10 @@
-[[redirects]]
-	from = "https://eventstack-nl.netlify.com/*"
-	to = "https://eventstack.nl/:splat"
-	status = 301
-	force = true
+[build]
+  base = "web"
+  command = "gulp"
+  publish = "build"
+
+[build.processing.html]
+  pretty_urls = true
 
 [[redirects]]
 	from = "https://www.eventstack.nl/*"
@@ -11,7 +13,7 @@
 	force = true
 
 [[headers]]
-	for = "/*"
+	for = "/"
 
 	[headers.values]
 	Content-Security-Policy = """
@@ -32,6 +34,3 @@
 	X-Content-Type-Options = "nosniff"
 	X-Frame-Options = "SAMEORIGIN"
 	X-XSS-Protection = "1; mode=block"
-
-[dev]
-	publish = "target"
