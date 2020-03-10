@@ -1,19 +1,18 @@
 [build]
-  command = "gulp"
-  publish = "build"
+command = "gulp"
+publish = "build"
 
 [build.processing.html]
-  pretty_urls = true
+pretty_urls = true
 
 [[redirects]]
-	from = "https://www.eventstack.nl/*"
-	to = "https://eventstack.nl/:splat"
-	status = 301
-	force = true
+from = "https://www.eventstack.nl/*"
+to = "https://eventstack.nl/:splat"
+status = 301
+force = true
 
 [[headers]]
-	for = "/"
-
+for = "/"
 	[headers.values]
 	Content-Security-Policy = """
 		default-src 'none'; \
