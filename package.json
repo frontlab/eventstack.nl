@@ -1,13 +1,22 @@
 {
+	"author": {
+		"name": "Jan van Hellemond"
+	},
+	"description": "Beauty is the purgation of superfluities.",
+	"license": "UNLICENSED",
 	"browserslist": "> 1% and last 2 versions",
+	"scripts": {
+		"preinstall": "npm install gulp-cli -g"
+	},
 	"devDependencies": {
-		"autoprefixer": "^9.7.3",
+		"autoprefixer": "^10.2.1",
 		"gulp": "^4.0.0",
 		"gulp-htmlmin": "^5.0.1",
-		"gulp-postcss": "^8.0.0",
-		"gulp-rename": "^1.2.2",
+		"gulp-postcss": "^9.0.0",
+		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^4.0.1",
 		"gulp-uglify": "^3.0.0",
-		"rimraf": "^3.0.0"
+		"rimraf": "^3.0.0",
+		"yargs-parser": ">=5.0.0-security.0"
 	}
 }

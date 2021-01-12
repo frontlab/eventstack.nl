@@ -9,12 +9,10 @@
 	font: inherit;
 	color: inherit;
 }
-li {
-	list-style: none;
-}
-:focus {
-	outline: none;
-}
+
+li { list-style: none; }
+
+:focus { outline: none; }
 
 a:not(.button) {
 	position: relative;
@@ -32,9 +30,9 @@ a:not(.button) {
 		background-color: currentColor;
 		content: "";
 	}
-	&:not(:hover):not(:focus)::before {
-		opacity: 0;
-	}
+
+	&:not(:hover):not(:focus)::before { opacity: 0; }
+
 }
 
 html {
@@ -67,16 +65,17 @@ header {
 		max-width: 20rem;
 		height: auto;
 	}
+
 	& > h1 {
 		margin-bottom: 1rem;
 		width: 100%;
 		max-width: 20em;
 		font-size: calc(1.25rem + 0.5vw);
 
-		& > em {
-			font-weight: 700;
-		}
+		& > em { font-weight: 700; }
+
 	}
+
 	& > p {
 		margin-top: 1rem;
 		max-width: 25rem;
@@ -99,11 +98,13 @@ header {
 			&:focus:not(:active) {
 				background-color: lighten(#0cbf31, 3.5%);
 			}
-			&:active {
-				border-bottom-color: transparent;
-			}
+
+			&:active { border-bottom-color: transparent; }
+
 		}
+
 	}
+
 }
 
 section > ul {
@@ -127,17 +128,17 @@ footer {
 			width: 7.5rem;
 			height: auto;
 		}
-		& > address {
-			margin: 0.5rem 0;
-		}
+
+		& > address { margin: 0.5rem 0; }
+
 		& > p {
 			margin-top: 0.25rem;
 			line-height: 1.5;
 
-			& > span {
-				display: block;
-			}
+			& > span { display: block; }
+
 		}
+
 		& > small {
 			display: block;
 			margin-top: 0.5rem;
@@ -145,19 +146,19 @@ footer {
 			font-size: 0.825rem;
 			color: #999;
 
-			& > u + u {
-				padding-left: 0.35em;
-			}
+			& > u + u { padding-left: 0.35em; }
+
 		}
-		& + div {
-			margin-top: 2rem;
-		}
+
+		& + div { margin-top: 2rem; }
+
 	}
 
 	@media (max-width: 600px) {
 		flex-direction: column;
 		align-items: flex-start;
 	}
+
 }
 
 .hero {
@@ -171,6 +172,7 @@ footer {
 		object-position: center;
 		object-fit: cover;
 	}
+
 }
 
 .event {
@@ -193,7 +195,9 @@ footer {
 			width: 100%;
 			height: auto;
 		}
+
 	}
+
 	& > p {
 		margin-top: 0.5rem;
 
@@ -204,12 +208,13 @@ footer {
 			font-size: 1.05rem;
 			font-weight: 600;
 		}
-		& > time {
-			font-size: 0.825rem;
-		}
+
+		& > time { font-size: 0.825rem; }
+
 	}
 
 	&--fronteers { background-color: #f2bb00; }
 	&--gittogreat { background-color: #0cbf31; }
 	&--serverless-amsterdam { background-color: #369; }
+
 }
